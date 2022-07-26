@@ -7,5 +7,6 @@ namespace HuangD.Interfaces
     public interface ICustomInit
     {
         IEmperorInit emperor { get; }
+        ICounrtyInit country { get; }
     }
 }

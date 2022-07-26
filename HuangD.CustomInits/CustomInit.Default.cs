@@ -12,6 +12,11 @@ namespace HuangD.CustomInits
             {
                 familyName = "F1",
                 givenName = "G1"
+            },
+            country = new CountryInit()
+            {
+                countryName = "C1",
+                yearName = "Y1"
             }
         };
     }

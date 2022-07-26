@@ -17,4 +17,9 @@ public class MainScene : MonoBehaviour
     {
         
     }
+
+    public void OnTimeElapse()
+    {
+        Global.session.OnTimeElapse();
+    }
 }

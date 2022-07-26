@@ -8,4 +8,11 @@ namespace HuangD.CustomInits
 
         public string givenName  { get; set; }
     }
+
+    public class CountryInit : ICounrtyInit
+    {
+        public string countryName { get; set; }
+
+        public string yearName { get; set; }
+    }
 }

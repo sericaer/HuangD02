@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{441CEA25-E9BE-D1BC-6AA5-E5EA822194F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{9A1BC477-EA36-ABC4-1D8C-E6BB5785DC4B}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HuangD.Interfaces", "..\HuangD.Interfaces\HuangD.Interfaces.csproj", "{313C1F33-6C41-44AF-B1B8-F996C3A56AC9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HuangD.Sessions", "..\HuangD.Sessions\HuangD.Sessions.csproj", "{F99AEF44-2160-40E3-A9B4-3F56799B39BE}"
@@ -27,6 +29,10 @@ Global
 		{441CEA25-E9BE-D1BC-6AA5-E5EA822194F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{441CEA25-E9BE-D1BC-6AA5-E5EA822194F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{441CEA25-E9BE-D1BC-6AA5-E5EA822194F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A1BC477-EA36-ABC4-1D8C-E6BB5785DC4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A1BC477-EA36-ABC4-1D8C-E6BB5785DC4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A1BC477-EA36-ABC4-1D8C-E6BB5785DC4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A1BC477-EA36-ABC4-1D8C-E6BB5785DC4B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{313C1F33-6C41-44AF-B1B8-F996C3A56AC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{313C1F33-6C41-44AF-B1B8-F996C3A56AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{313C1F33-6C41-44AF-B1B8-F996C3A56AC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
