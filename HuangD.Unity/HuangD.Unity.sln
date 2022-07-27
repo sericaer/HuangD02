@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HuangD.CustomInits", "..\Hu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HuangD.Modders", "..\HuangD.Modders\HuangD.Modders.csproj", "{E93ACB88-CDB2-4254-85F7-71463E7FE912}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HuangD.Relations", "..\HuangD.Relations\HuangD.Relations.csproj", "{983A8AE1-7933-42DE-A468-8483E361D94F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{E93ACB88-CDB2-4254-85F7-71463E7FE912}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E93ACB88-CDB2-4254-85F7-71463E7FE912}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E93ACB88-CDB2-4254-85F7-71463E7FE912}.Release|Any CPU.Build.0 = Release|Any CPU
+		{983A8AE1-7933-42DE-A468-8483E361D94F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{983A8AE1-7933-42DE-A468-8483E361D94F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{983A8AE1-7933-42DE-A468-8483E361D94F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{983A8AE1-7933-42DE-A468-8483E361D94F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,7 +9,7 @@ public class MainScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Global.session = Session.Builder.Build(Global.customInit);
+        Global.session = Session.Builder.Build(Global.customInit, Global.modder.defs);
     }
 
     // Update is called once per frame
