@@ -16,14 +16,14 @@ public class CustomEmperor : MonoBehaviour
 
     public void OnRandomFamily()
     {
-        string[] familyNames = Global.modder.familyNames;
+        string[] familyNames = Global.modder.defs.personDef.familyNames;
 
         familyName.text = familyNames.ElementAt(Random.Range(0, familyNames.Length));
     }
 
     public void OnRandomGiven()
     {
-        string[] givenNames = Global.modder.givenNames;
+        string[] givenNames = Global.modder.defs.personDef.givenNames;
 
         givenName.text = givenNames.ElementAt(Random.Range(0, givenNames.Length));
     }

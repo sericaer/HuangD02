@@ -7,11 +7,14 @@ namespace HuangD.Modders
     {
         public static Modder Default = new Modder()
         {
-            familyNames = Enumerable.Range(0, 100).Select(x => $"[F{x}]").ToArray(),
-            givenNames = Enumerable.Range(0, 100).Select(x => $"[G{x}]").ToArray(),
-
             defs = new ModDefs()
             {
+                personDef = new PersonDef()
+                {
+                    familyNames = Enumerable.Range(0, 100).Select(x => $"[F{x}]").ToArray(),
+                    givenNames = Enumerable.Range(0, 100).Select(x => $"[G{x}]").ToArray(),
+                },
+
                 officeDefs = new IOfficeDef[]
                 {
                     new ChaotingOfficeDef()

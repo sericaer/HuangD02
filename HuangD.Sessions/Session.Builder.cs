@@ -13,34 +13,24 @@ namespace HuangD.Sessions
         {
             public static Session Build(ICustomInit initData, IModDefs modDefs)
             {
-                var session = new Session();
+                var session = new Session(modDefs);
 
                 session.yearName = initData.country.yearName;
                 session.emperor = new Person((initData.emperor.familyName, initData.emperor.givenName));
                 session.date = new Date();
-                session.relationMgr = new RelationMgr();
+
+                session.chaoting = ChaotingGroup.Builder.Build(modDefs.officeDefs.OfType<IChaotingOfficeDef>());
+                session.hougong = HougongGroup.Builder.Build();
 
                 session.persons = new List<IPerson>();
-                session.chaoting = ChaotingGroup.Builder.Build(modDefs.officeDefs.OfType<IChaotingOfficeDef>());
-
-                session.hougong = new HougongGroup();
-
-                session.hougong.AddHou();
-
-                for(int i=0; i<2; i++)
+                for (int i=0; i<100; i++)
                 {
-                    session.hougong.AddGui();
+                    session.persons.Add(Person.Builder.Build());
                 }
 
-                for (int i = 0; i < 3; i++)
-                {
-                    session.hougong.AddFei();
-                }
 
-                for (int i = 0; i < 7; i++)
-                {
-                    session.hougong.AddBin();
-                }
+                session.relationMgr = RelationMgr.Builder.Build(session.persons, session.chaoting);
+
 
                 return session;
             }

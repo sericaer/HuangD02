@@ -6,5 +6,7 @@ namespace HuangD.Modders
     class ModDefs : IModDefs
     {
         public IEnumerable<IOfficeDef> officeDefs { get; internal set; }
+
+        public IPersonDef personDef { get; internal set; }
     }
 }

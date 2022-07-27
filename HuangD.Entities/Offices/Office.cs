@@ -9,7 +9,7 @@ namespace HuangD.Entities.Offices
     {
         public static Func<IOffice, IEnumerable<IPerson2Office>> funcGetToPersonRelations;
 
-        public string name { get; internal set; }
+        public string name => def.name;
 
         public IEnumerable<IPerson2Office> toPersonRelations => funcGetToPersonRelations(this);
 

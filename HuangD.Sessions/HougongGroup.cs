@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace HuangD.Sessions
 {
-    internal class HougongGroup : IHouGongGroup
+    internal partial class HougongGroup : IHouGongGroup
     {
         public IEnumerable<IOffice> hous => _hous;
 

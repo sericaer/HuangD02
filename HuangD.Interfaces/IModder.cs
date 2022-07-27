@@ -4,14 +4,12 @@ namespace HuangD.Interfaces
 {
     public interface IModder
     {
-        string[] familyNames { get; }
-        string[] givenNames { get; }
-
         IModDefs defs { get; }
     }
 
     public interface IModDefs
     {
+        IPersonDef personDef { get; }
         IEnumerable<IOfficeDef> officeDefs { get; }
     }
 
@@ -34,6 +32,13 @@ namespace HuangD.Interfaces
 
     public interface IHougongOfficeDef : IOfficeDef
     {
+
+    }
+
+    public interface IPersonDef
+    {
+        string[] familyNames { get; }
+        string[] givenNames { get; }
 
     }
 }
