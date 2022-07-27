@@ -14,35 +14,60 @@ namespace HuangD.Modders
             {
                 officeDefs = new IOfficeDef[]
                 {
-                    new OfficeDef()
+                    new ChaotingOfficeDef()
                     {
                         name = "chengxiang",
-                        responsibility = new ChengXiangReps()
+                        isMain = true,
                     },
-                    new OfficeDef()
+                    new ChaotingOfficeDef()
                     {
                         name = "taiwei",
-                        responsibility = new TaiweiReps()
+                        isMain = true,
                     },
-                    new OfficeDef()
+                    new ChaotingOfficeDef()
                     {
                         name = "yushi",
-                        responsibility = new YushiReps()
+                        isMain = true,
                     },
-                    new OfficeDef()
+                    new ChaotingOfficeDef()
                     {
-                        name = "huanghou",
-                        responsibility = new HuangHouReps()
+                        name = "taichang",
+                        isMain = false,
                     },
-                    new OfficeDef()
+                    new ChaotingOfficeDef()
                     {
-                        name = "fei",
-                        responsibility = new FeiReps()
+                        name = "shaofu",
+                        isMain = false,
                     },
-                    new OfficeDef()
+                    new ChaotingOfficeDef()
                     {
-                        name = "bin",
-                        responsibility = new BinReps()
+                        name = "tingwei",
+                        isMain = false,
+                    },
+                    new ChaotingOfficeDef()
+                    {
+                        name = "tingwei",
+                        isMain = false,
+                    },
+                    new ChaotingOfficeDef()
+                    {
+                        name = "tingwei",
+                        isMain = false,
+                    },
+                    new ChaotingOfficeDef()
+                    {
+                        name = "tingwei",
+                        isMain = false,
+                    },
+                    new ChaotingOfficeDef()
+                    {
+                        name = "tingwei",
+                        isMain = false,
+                    },
+                    new ChaotingOfficeDef()
+                    {
+                        name = "tingwei",
+                        isMain = false,
                     },
                 }
             }

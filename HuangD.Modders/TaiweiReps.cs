@@ -2,7 +2,7 @@
 
 namespace HuangD.Modders
 {
-    internal class TaiweiReps : IOffice.IResponsibility
+    internal class TaiweiReps : IOfficeDef.IResponsibility
     {
     }
 }

@@ -2,7 +2,7 @@
 
 namespace HuangD.Modders
 {
-    internal class FeiReps : IOffice.IResponsibility
+    internal class FeiReps : IOfficeDef.IResponsibility
     {
     }
 }

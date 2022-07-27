@@ -18,6 +18,22 @@ namespace HuangD.Interfaces
     public interface IOfficeDef
     {
         string name { get; }
-        IOffice.IResponsibility responsibility { get; }
+
+        IResponsibility responsibility { get; }
+
+        public interface IResponsibility
+        {
+
+        }
+    }
+
+    public interface IChaotingOfficeDef : IOfficeDef
+    {
+        bool isMain { get; }
+    }
+
+    public interface IHougongOfficeDef : IOfficeDef
+    {
+
     }
 }

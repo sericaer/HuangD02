@@ -3,6 +3,7 @@ using HuangD.Interfaces;
 using HuangD.Relations;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HuangD.Sessions
 {
@@ -20,6 +21,8 @@ namespace HuangD.Sessions
                 session.relationMgr = new RelationMgr();
 
                 session.persons = new List<IPerson>();
+                session.chaoting = ChaotingGroup.Builder.Build(modDefs.officeDefs.OfType<IChaotingOfficeDef>());
+
                 session.hougong = new HougongGroup();
 
                 session.hougong.AddHou();

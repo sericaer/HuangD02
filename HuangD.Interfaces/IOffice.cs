@@ -7,13 +7,8 @@ namespace HuangD.Interfaces
     {
         string name { get; }
 
-        //IResponsibility responsibility { get; }
+        IOfficeDef def { get; }
         IEnumerable<IPerson2Office> toPersonRelations { get; }
         IPerson currPerson => toPersonRelations.SingleOrDefault(x => x.isCurrent)?.person;
-
-        public interface IResponsibility
-        {
-
-        }
     }
 }
