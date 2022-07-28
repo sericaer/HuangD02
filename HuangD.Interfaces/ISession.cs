@@ -11,9 +11,12 @@ namespace HuangD.Interfaces
 
         public IList<IPerson> persons { get; }
 
+        public IList<IParty> parties { get; }
+
         public IChaotingGroup chaoting { get; }
 
         public IHouGongGroup hougong { get; }
+
 
         IRelationMgr relationMgr { get; }
 

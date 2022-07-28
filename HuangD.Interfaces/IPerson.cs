@@ -16,11 +16,15 @@ namespace HuangD.Interfaces
 
         IEnumerable<IPerson2Office> toOfficeRelations { get; }
         IEnumerable<IPerson2Party> toPartyRelations { get; }
+        int power  => 10;
     }
 
     public interface IParty
     {
         string name { get; }
-        IEnumerable<IPerson> persons { get; }
+        int power => members.Sum(x => x.power);
+
+        IEnumerable<IPerson> members => toPersonRelations.Select(x => x.person);
+        IEnumerable< IPerson2Party> toPersonRelations { get; }
     }
 }

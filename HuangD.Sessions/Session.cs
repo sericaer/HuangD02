@@ -42,11 +42,6 @@ namespace HuangD.Sessions
                 return relationMgr.person2Parties.Where(x => x.person == person);
             };
 
-            Office.funcGetToPersonRelations = (office) =>
-            {
-                return relationMgr.person2Offices.Where(x => x.office == office);
-            };
-
             Person.funcGenNames = () =>
             {
                 var familyNames = modDefs.personDef.familyNames;
@@ -64,6 +59,16 @@ namespace HuangD.Sessions
                 return (familyNames[familyNameIndex], givenNames[givenNameIndex]);
             };
 
+
+            Office.funcGetToPersonRelations = (office) =>
+            {
+                return relationMgr.person2Offices.Where(x => x.office == office);
+            };
+
+            Party.funcGetToPersonRelations = (party) =>
+            {
+                return relationMgr.person2Parties.Where(x => x.party == party);
+            };
 
         }
 
