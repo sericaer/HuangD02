@@ -28,8 +28,13 @@ namespace HuangD.Sessions
                     session.persons.Add(Person.Builder.Build());
                 }
 
+                session.parties = new List<IParty>();
+                foreach(var def in modDefs.partyDefs)
+                {
+                    session.parties.Add(new Party(def));
+                }
 
-                session.relationMgr = RelationMgr.Builder.Build(session.persons, session.chaoting, session.hougong);
+                session.relationMgr = RelationMgr.Builder.Build(session.persons, session.chaoting, session.hougong, session.parties);
 
 
                 return session;

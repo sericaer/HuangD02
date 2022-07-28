@@ -8,5 +8,7 @@ namespace HuangD.Modders
         public IEnumerable<IOfficeDef> officeDefs { get; internal set; }
 
         public IPersonDef personDef { get; internal set; }
+
+        public IEnumerable<IPartyDef> partyDefs { get; internal set; }
     }
 }

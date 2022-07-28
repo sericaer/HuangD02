@@ -11,6 +11,13 @@ namespace HuangD.Interfaces
     {
         IPersonDef personDef { get; }
         IEnumerable<IOfficeDef> officeDefs { get; }
+        IEnumerable<IPartyDef> partyDefs { get; }
+
+    }
+
+    public interface IPartyDef
+    {
+        string name { get; }
     }
 
     public interface IOfficeDef

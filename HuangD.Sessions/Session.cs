@@ -19,6 +19,7 @@ namespace HuangD.Sessions
 
         public IList<IPerson> persons { get; private set; }
 
+        public IList<IParty> parties { get; private set; }
         public IChaotingGroup chaoting { get; private set; }
 
         public IHouGongGroup hougong { get; private set; }
@@ -34,6 +35,11 @@ namespace HuangD.Sessions
             Person.funcGetToOfficeRelations = (person) =>
             {
                 return relationMgr.person2Offices.Where(x => x.person == person);
+            };
+
+            Person.funcGetToPartyRelations = (person) =>
+            {
+                return relationMgr.person2Parties.Where(x => x.person == person);
             };
 
             Office.funcGetToPersonRelations = (office) =>
@@ -57,6 +63,8 @@ namespace HuangD.Sessions
 
                 return (familyNames[familyNameIndex], givenNames[givenNameIndex]);
             };
+
+
         }
 
         public void OnTimeElapse()

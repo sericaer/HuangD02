@@ -15,6 +15,26 @@ namespace HuangD.Modders
                     givenNames = Enumerable.Range(0, 100).Select(x => $"[G{x}]").ToArray(),
                 },
 
+                partyDefs = new IPartyDef[]
+                {
+                    new PartyDef()
+                    {
+                        name = "P0"
+                    },
+                    new PartyDef()
+                    {
+                        name = "P1"
+                    },
+                    new PartyDef()
+                    {
+                        name = "P2"
+                    },
+                    new PartyDef()
+                    {
+                        name = "P3"
+                    },
+                },
+
                 officeDefs = new IOfficeDef[]
                 {
                     new ChaotingOfficeDef()

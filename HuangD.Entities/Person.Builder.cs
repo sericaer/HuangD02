@@ -1,5 +1,6 @@
 ﻿using HuangD.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace HuangD.Entities
 {
