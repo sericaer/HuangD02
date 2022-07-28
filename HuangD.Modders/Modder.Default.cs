@@ -67,11 +67,30 @@ namespace HuangD.Modders
                         name = "tingwei",
                         isMain = false,
                     },
-                    new ChaotingOfficeDef()
+                    new HougongOfficeDef()
                     {
-                        name = "tingwei",
-                        isMain = false,
+                        name = "Huanghou",
+                        maxCount = 1,
+                        responsibility = IOfficeDef.RespType.HuangHou
                     },
+                    new HougongOfficeDef()
+                    {
+                        name = "Gui",
+                        maxCount = 2,
+                        responsibility = IOfficeDef.RespType.Gui
+                    },
+                    new HougongOfficeDef()
+                    {
+                        name = "Fei",
+                        maxCount = 3,
+                        responsibility = IOfficeDef.RespType.Fei
+                    },
+                    new HougongOfficeDef()
+                    {
+                        name = "Bin",
+                        maxCount = 10,
+                        responsibility = IOfficeDef.RespType.Bin
+                    }
                 }
             }
         };

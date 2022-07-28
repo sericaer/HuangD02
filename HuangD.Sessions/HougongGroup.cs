@@ -1,42 +1,31 @@
 ﻿using HuangD.Entities.Offices;
 using HuangD.Interfaces;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HuangD.Sessions
 {
     internal partial class HougongGroup : IHouGongGroup
     {
-        public IEnumerable<IOffice> hous => _hous;
+        public IEnumerable<IOffice> hous => _all.Where(x => x.def.responsibility == IOfficeDef.RespType.HuangHou);
 
-        public IEnumerable<IOffice> guis => _guis;
+        public IEnumerable<IOffice> guis => _all.Where(x => x.def.responsibility == IOfficeDef.RespType.Gui);
 
-        public IEnumerable<IOffice> feis => _feis;
+        public IEnumerable<IOffice> feis => _all.Where(x => x.def.responsibility == IOfficeDef.RespType.Fei);
 
-        public IEnumerable<IOffice> bins => _bins;
+        public IEnumerable<IOffice> bins => _all.Where(x => x.def.responsibility == IOfficeDef.RespType.Bin);
 
-        private List<IOffice> _hous = new List<IOffice>();
-        private List<IOffice> _guis = new List<IOffice>();
-        private List<IOffice> _feis = new List<IOffice>();
-        private List<IOffice> _bins = new List<IOffice>();
+        private List<IOffice> _all = new List<IOffice>();
 
-        public void AddHou()
+        public IEnumerator<IOffice> GetEnumerator()
         {
-            _hous.Add(new HuangHou());
+            return _all.GetEnumerator();
         }
 
-        public void AddGui()
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            _guis.Add(new GuiFei());
-        }
-
-        public void AddFei()
-        {
-            _feis.Add(new Fei());
-        }
-
-        public void AddBin()
-        {
-            _bins.Add(new Bin());
+            return _all.GetEnumerator();
         }
     }
 }

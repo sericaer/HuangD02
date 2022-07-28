@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class OfficeHougongItem : MonoBehaviour
+public class OfficeHougongItem : OfficeItem
 {
-    public IOffice obj { get; internal set; }
 }

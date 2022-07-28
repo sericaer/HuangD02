@@ -20,7 +20,7 @@ namespace HuangD.Sessions
                 session.date = new Date();
 
                 session.chaoting = ChaotingGroup.Builder.Build(modDefs.officeDefs.OfType<IChaotingOfficeDef>());
-                session.hougong = HougongGroup.Builder.Build();
+                session.hougong = HougongGroup.Builder.Build(modDefs.officeDefs.OfType<IHougongOfficeDef>());
 
                 session.persons = new List<IPerson>();
                 for (int i=0; i<100; i++)
@@ -29,7 +29,7 @@ namespace HuangD.Sessions
                 }
 
 
-                session.relationMgr = RelationMgr.Builder.Build(session.persons, session.chaoting);
+                session.relationMgr = RelationMgr.Builder.Build(session.persons, session.chaoting, session.hougong);
 
 
                 return session;

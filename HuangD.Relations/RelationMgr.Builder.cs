@@ -9,20 +9,24 @@ namespace HuangD.Relations
     {
         public static class Builder
         {
-            public static IRelationMgr Build(IList<IPerson> persons, IChaotingGroup chaoting)
+            public static IRelationMgr Build(IList<IPerson> persons, IChaotingGroup chaoting, IHouGongGroup houGongGroup)
             {
                 var relation = new RelationMgr();
 
-                int i = 0;
-                for(; i< chaoting.mainOffices.Count(); i++)
+                var queue = new Queue<IPerson>(persons);
+                for(int i =0; i < chaoting.mainOffices.Count(); i++)
                 {
-                    relation.Person2OfficeStart(persons.ElementAt(i), chaoting.mainOffices.ElementAt(i), (1, 1, 1));
+                    relation.Person2OfficeStart(queue.Dequeue(), chaoting.mainOffices.ElementAt(i), (1, 1, 1));
                 }
 
-                int j = 0;
-                for (; j < chaoting.branchOffices.Count(); j++)
+                for (int i = 0; i < chaoting.branchOffices.Count(); i++)
                 {
-                    relation.Person2OfficeStart(persons.ElementAt(j+i), chaoting.branchOffices.ElementAt(j), (1, 1, 1));
+                    relation.Person2OfficeStart(queue.Dequeue(), chaoting.branchOffices.ElementAt(i), (1, 1, 1));
+                }
+
+                foreach(var office in houGongGroup)
+                {
+                    relation.Person2OfficeStart(queue.Dequeue(), office, (1, 1, 1));
                 }
 
                 return relation;

@@ -2,7 +2,7 @@
 
 namespace HuangD.Modders
 {
-    internal class HuangHouReps : IOfficeDef.IResponsibility
+    internal class HuangHouResp : IOfficeDef.IResponsibility
     {
     }
 }

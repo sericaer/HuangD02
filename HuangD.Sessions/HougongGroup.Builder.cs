@@ -1,5 +1,7 @@
-﻿using HuangD.Interfaces;
+﻿using HuangD.Entities.Offices;
+using HuangD.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace HuangD.Sessions
 {
@@ -7,24 +9,16 @@ namespace HuangD.Sessions
     {
         public static class Builder
         {
-            internal static HougongGroup Build()
+            internal static HougongGroup Build(IEnumerable<IHougongOfficeDef> officeDefs)
             {
                 var group = new HougongGroup();
-                group.AddHou();
 
-                for (int i = 0; i < 2; i++)
+                foreach(var def in officeDefs)
                 {
-                    group.AddGui();
-                }
-
-                for (int i = 0; i < 3; i++)
-                {
-                    group.AddFei();
-                }
-
-                for (int i = 0; i < 7; i++)
-                {
-                    group.AddBin();
+                    for(int i =0; i< def.maxCount; i++)
+                    {
+                        group._all.Add(new Office(def));
+                    }
                 }
 
                 return group;

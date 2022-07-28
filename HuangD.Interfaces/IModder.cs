@@ -17,11 +17,20 @@ namespace HuangD.Interfaces
     {
         string name { get; }
 
-        IResponsibility responsibility { get; }
+        RespType responsibility { get; }
 
         public interface IResponsibility
         {
 
+        }
+
+        public enum RespType
+        {
+            Empty,
+            HuangHou,
+            Gui,
+            Fei,
+            Bin,
         }
     }
 
@@ -32,7 +41,7 @@ namespace HuangD.Interfaces
 
     public interface IHougongOfficeDef : IOfficeDef
     {
-
+        int maxCount { get; }
     }
 
     public interface IPersonDef
