@@ -19,6 +19,12 @@ namespace HuangD.Modders
                         givenNames = Enumerable.Range(0, 100).Select(x => $"[G{x}]").ToArray(),
                     },
 
+                    countryDef = new CountryDef()
+                    {
+                        countryNames = Enumerable.Range(0, 100).Select(x => $"[COUNTRY{x}]").ToArray(),
+                        yearNames = Enumerable.Range(0, 100).Select(x => $"[YEAR{x}]").ToArray(),
+                    },
+
                     partyDefs = new IPartyDef[]
                     {
                         new PartyDef()

@@ -12,5 +12,7 @@ namespace HuangD.Modders
         public IEnumerable<IPartyDef> partyDefs { get; internal set; }
 
         public IEnumerable<IProvinceDef> provinceDefs { get; internal set; }
+
+        public ICountryDef countryDef { get; internal set; }
     }
 }

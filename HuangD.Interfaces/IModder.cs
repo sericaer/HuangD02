@@ -10,9 +10,9 @@ namespace HuangD.Interfaces
     public interface IModDefs
     {
         IPersonDef personDef { get; }
+        ICountryDef countryDef { get; }
         IEnumerable<IOfficeDef> officeDefs { get; }
         IEnumerable<IPartyDef> partyDefs { get; }
-
         IEnumerable<IProvinceDef> provinceDefs { get; }
     }
 
