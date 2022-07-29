@@ -40,7 +40,7 @@ namespace HuangD.Sessions
                     session.provinces.Add(new Province(def));
                 }
 
-                session.relationMgr = RelationMgr.Builder.Build(session.persons, session.chaoting, session.hougong, session.parties);
+                session.relationMgr = RelationMgr.Builder.Build(session.persons, session.chaoting, session.hougong, session.parties, session.provinces);
 
 
                 return session;

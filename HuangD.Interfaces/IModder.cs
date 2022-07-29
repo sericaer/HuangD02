@@ -19,6 +19,7 @@ namespace HuangD.Interfaces
     public interface IProvinceDef
     {
         string name { get; }
+        IOfficeDef master { get; }
     }
 
     public interface IPartyDef

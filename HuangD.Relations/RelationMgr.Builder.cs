@@ -9,12 +9,13 @@ namespace HuangD.Relations
     {
         public static class Builder
         {
-            public static IRelationMgr Build(IList<IPerson> persons, IChaotingGroup chaoting, IHouGongGroup houGongGroup, IList<IParty> parties)
+            public static IRelationMgr Build(IList<IPerson> persons, IChaotingGroup chaoting, IHouGongGroup houGongGroup, IList<IParty> parties, IEnumerable<IProvince> provinces)
             {
                 var relation = new RelationMgr();
 
-                BuildPerson2OfficeRelations(relation, persons, chaoting, houGongGroup);
+                BuildPerson2OfficeRelations(relation, persons, chaoting, houGongGroup, provinces);
                 BuildPerson2PartyRelations(relation, persons, parties);
+
                 return relation;
             }
 
@@ -26,7 +27,7 @@ namespace HuangD.Relations
                 }
             }
 
-            private static void BuildPerson2OfficeRelations(RelationMgr relation, IEnumerable<IPerson> persons, IChaotingGroup chaoting, IHouGongGroup houGongGroup)
+            private static void BuildPerson2OfficeRelations(RelationMgr relation, IEnumerable<IPerson> persons, IChaotingGroup chaoting, IHouGongGroup houGongGroup, IEnumerable<IProvince> provinces)
             {
                 var queue = new Queue<IPerson>(persons);
                 for (int i = 0; i < chaoting.mainOffices.Count(); i++)
@@ -37,6 +38,11 @@ namespace HuangD.Relations
                 for (int i = 0; i < chaoting.branchOffices.Count(); i++)
                 {
                     relation.Person2OfficeStart(queue.Dequeue(), chaoting.branchOffices.ElementAt(i), (1, 1, 1));
+                }
+
+                for (int i = 0; i < provinces.Count(); i++)
+                {
+                    relation.Person2OfficeStart(queue.Dequeue(), provinces.ElementAt(i).masterOffice, (1, 1, 1));
                 }
 
                 foreach (var office in houGongGroup)

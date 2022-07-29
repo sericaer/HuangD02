@@ -7,5 +7,7 @@ namespace HuangD.Interfaces
     public interface IProvince
     {
         string name { get; }
+        IOffice masterOffice { get; }
+        int popCount => 1000; 
     }
 }
