@@ -11,6 +11,8 @@ namespace HuangD.Modders
         public bool isMain { get; internal set; }
 
         public int power { get; internal set; }
+
+        public int? score => 5;
     }
 
     internal class HougongOfficeDef : IHougongOfficeDef
@@ -20,5 +22,7 @@ namespace HuangD.Modders
         public IOfficeDef.RespType responsibility { get; internal set; }
 
         public int maxCount { get; internal set; }
-}
+
+        public int? score => null;
+    }
 }

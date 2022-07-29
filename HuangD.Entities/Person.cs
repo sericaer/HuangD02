@@ -9,6 +9,8 @@ namespace HuangD.Entities
     {
         public static Func<IPerson, IEnumerable<IPerson2Office>> funcGetToOfficeRelations;
         public static Func<IPerson, IEnumerable<IPerson2Party>> funcGetToPartyRelations;
+        public static Func<IPerson, IEnumerable<IPerson.ScoreItem>> funcGetScoreItems;
+
         public string familyName { get; private set; }
         public string givenName { get; private set; }
 
@@ -19,7 +21,7 @@ namespace HuangD.Entities
         public IEnumerable<(string desc, int value)> powerDetail => toOfficeRelations.Where(x => x.isCurrent)
             .Select(x => x.office.def).OfType<IChaotingOfficeDef>().Select(x => (x.name, x.power));
 
-
+        public IEnumerable<IPerson.ScoreItem> scoreItems => funcGetScoreItems(this);
 
         public Person((string family, string given) name)
         {

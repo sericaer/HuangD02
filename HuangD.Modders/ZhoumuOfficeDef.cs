@@ -7,5 +7,7 @@ namespace HuangD.Modders
         public string name { get; internal set; }
 
         public IOfficeDef.RespType responsibility => throw new System.NotImplementedException();
+
+        public int? score => 3;
     }
 }

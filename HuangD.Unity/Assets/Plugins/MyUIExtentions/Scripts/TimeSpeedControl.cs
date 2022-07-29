@@ -21,7 +21,11 @@ public class TimeSpeedControl : MonoBehaviour
 
     public bool isPause => isSysPause || isUserPause;
 
+#if UNITY_EDITOR
+    public int MAX_SPEED => 10;
+#else
     public int MAX_SPEED => 4;
+#endif
     public int MIN_SPEED => 1;
 
 
@@ -37,7 +41,12 @@ public class TimeSpeedControl : MonoBehaviour
 
         isSysPause = false;
 
+#if UNITY_EDITOR
+        speed = MAX_SPEED;
+#else
         speed = 1;
+#endif
+
 
         UpdateSpeedControl();
 

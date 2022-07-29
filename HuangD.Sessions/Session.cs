@@ -1,6 +1,7 @@
 ﻿using HuangD.Entities;
 using HuangD.Entities.Offices;
 using HuangD.Interfaces;
+using HuangD.Systems;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,8 @@ namespace HuangD.Sessions
 
         public IList<IProvince> provinces { get; private set; }
 
+        
+        private PersonScoreSystem personScoreSystem = new PersonScoreSystem();
         private Random random;
 
         public Session(IModDefs modDefs)
@@ -61,6 +64,10 @@ namespace HuangD.Sessions
                 return (familyNames[familyNameIndex], givenNames[givenNameIndex]);
             };
 
+            Person.funcGetScoreItems = (person) =>
+            {
+                return personScoreSystem.GetScoreItems(person);
+            };
 
             Office.funcGetToPersonRelations = (office) =>
             {
@@ -77,6 +84,8 @@ namespace HuangD.Sessions
         public void OnTimeElapse()
         {
             date.day++;
+
+            personScoreSystem.Process(persons, date);
         }
     }
 }

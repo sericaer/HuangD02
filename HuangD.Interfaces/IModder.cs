@@ -32,6 +32,7 @@ namespace HuangD.Interfaces
         string name { get; }
 
         RespType responsibility { get; }
+        int? score { get; }
 
         public interface IResponsibility
         {

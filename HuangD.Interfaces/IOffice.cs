@@ -7,6 +7,7 @@ namespace HuangD.Interfaces
     {
         string name { get; }
         IOfficeDef def { get; }
+        int? score => def.score;
         IEnumerable<IPerson2Office> toPersonRelations { get; }
         IPerson currPerson => toPersonRelations.SingleOrDefault(x => x.isCurrent)?.person;
     }
