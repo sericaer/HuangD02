@@ -44,6 +44,7 @@ namespace HuangD.Interfaces
     public interface IChaotingOfficeDef : IOfficeDef
     {
         bool isMain { get; }
+        int power { get; }
     }
 
     public interface IHougongOfficeDef : IOfficeDef

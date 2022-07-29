@@ -11,12 +11,14 @@ namespace HuangD.Interfaces
 
         string familyName { get; }
         string givenName { get; }
+
         IOffice currOffice => toOfficeRelations.SingleOrDefault(x => x.isCurrent)?.office;
         IParty party => toPartyRelations.SingleOrDefault()?.party;
 
         IEnumerable<IPerson2Office> toOfficeRelations { get; }
         IEnumerable<IPerson2Party> toPartyRelations { get; }
-        int power  => 10;
+        int power => powerDetail.Sum(x => x.value);
+        IEnumerable<(string desc, int value)> powerDetail { get; }
     }
 
     public interface IParty

@@ -9,6 +9,8 @@ namespace HuangD.Modders
         public IOfficeDef.RespType responsibility { get; internal set; }
 
         public bool isMain { get; internal set; }
+
+        public int power { get; internal set; }
     }
 
     internal class HougongOfficeDef : IHougongOfficeDef

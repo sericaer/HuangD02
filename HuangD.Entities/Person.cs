@@ -1,6 +1,7 @@
 ﻿using HuangD.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HuangD.Entities
 {
@@ -14,6 +15,11 @@ namespace HuangD.Entities
         public IEnumerable<IPerson2Office> toOfficeRelations => funcGetToOfficeRelations(this);
 
         public IEnumerable<IPerson2Party> toPartyRelations => funcGetToPartyRelations(this);
+
+        public IEnumerable<(string desc, int value)> powerDetail => toOfficeRelations.Where(x => x.isCurrent)
+            .Select(x => x.office.def).OfType<IChaotingOfficeDef>().Select(x => (x.name, x.power));
+
+
 
         public Person((string family, string given) name)
         {

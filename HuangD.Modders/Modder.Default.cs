@@ -41,51 +41,61 @@ namespace HuangD.Modders
                     {
                         name = "chengxiang",
                         isMain = true,
+                        power = 30,
                     },
                     new ChaotingOfficeDef()
                     {
                         name = "taiwei",
                         isMain = true,
+                        power = 30,
                     },
                     new ChaotingOfficeDef()
                     {
                         name = "yushi",
                         isMain = true,
+                        power = 30,
                     },
                     new ChaotingOfficeDef()
                     {
                         name = "taichang",
                         isMain = false,
+                        power = 10,
                     },
                     new ChaotingOfficeDef()
                     {
                         name = "shaofu",
                         isMain = false,
+                        power = 10,
                     },
                     new ChaotingOfficeDef()
                     {
                         name = "tingwei",
                         isMain = false,
+                        power = 10,
                     },
                     new ChaotingOfficeDef()
                     {
                         name = "tingwei",
                         isMain = false,
+                        power = 10,
                     },
                     new ChaotingOfficeDef()
                     {
                         name = "tingwei",
                         isMain = false,
+                        power = 10,
                     },
                     new ChaotingOfficeDef()
                     {
                         name = "tingwei",
                         isMain = false,
+                        power = 10,
                     },
                     new ChaotingOfficeDef()
                     {
                         name = "tingwei",
                         isMain = false,
+                        power = 10,
                     },
                     new HougongOfficeDef()
                     {

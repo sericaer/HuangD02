@@ -1,12 +1,15 @@
 using HuangD.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PartyItem : MonoBehaviour
 {
     public Text label;
+    public Slider slider;
+
     public IParty obj;
 
     // Start is called before the first frame update
@@ -18,6 +21,13 @@ public class PartyItem : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        label.text = obj?.name;
+        if(obj != null)
+        {
+            label.text = obj.name;
+            slider.value = obj.power;
+
+
+            slider.maxValue = Global.session.chaoting.all.Sum(x => ((IChaotingOfficeDef)x.def).power);
+        }
     }
 }
