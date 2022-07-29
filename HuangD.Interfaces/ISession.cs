@@ -13,6 +13,7 @@ namespace HuangD.Interfaces
 
         public IList<IParty> parties { get; }
 
+        public IList<IProvince> provinces { get; }
         public IChaotingGroup chaoting { get; }
 
         public IHouGongGroup hougong { get; }

@@ -13,6 +13,12 @@ namespace HuangD.Interfaces
         IEnumerable<IOfficeDef> officeDefs { get; }
         IEnumerable<IPartyDef> partyDefs { get; }
 
+        IEnumerable<IProvinceDef> provinceDefs { get; }
+    }
+
+    public interface IProvinceDef
+    {
+        string name { get; }
     }
 
     public interface IPartyDef

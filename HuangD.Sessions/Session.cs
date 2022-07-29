@@ -26,6 +26,8 @@ namespace HuangD.Sessions
 
         public IModDefs modDefs { get; private set; }
 
+        public IList<IProvince> provinces { get; private set; }
+
         private Random random;
 
         public Session(IModDefs modDefs)

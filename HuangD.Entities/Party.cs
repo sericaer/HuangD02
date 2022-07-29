@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace HuangD.Sessions
+namespace HuangD.Entities
 {
-    internal class Party : IParty
+    public class Party : IParty
     {
         public static Func<object, IEnumerable<IPerson2Party>> funcGetToPersonRelations;
 
@@ -18,7 +18,5 @@ namespace HuangD.Sessions
         {
             this.def = def;
         }
-
-
     }
 }

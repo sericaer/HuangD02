@@ -121,6 +121,50 @@ namespace HuangD.Modders
                         maxCount = 10,
                         responsibility = IOfficeDef.RespType.Bin
                     }
+                },
+
+                provinceDefs = new IProvinceDef[]
+                {
+                    new ProvinceDef()
+                    {
+                        name = "PROV0"
+                    },
+                    new ProvinceDef()
+                    {
+                        name = "PROV1"
+                    },
+                    new ProvinceDef()
+                    {
+                        name = "PROV2"
+                    },
+                    new ProvinceDef()
+                    {
+                        name = "PROV3"
+                    },
+                    new ProvinceDef()
+                    {
+                        name = "PROV4"
+                    },
+                    new ProvinceDef()
+                    {
+                        name = "PROV5"
+                    },
+                    new ProvinceDef()
+                    {
+                        name = "PROV6"
+                    },
+                    new ProvinceDef()
+                    {
+                        name = "PROV7"
+                    },
+                    new ProvinceDef()
+                    {
+                        name = "PROV8"
+                    },
+                    new ProvinceDef()
+                    {
+                        name = "PROV9"
+                    }
                 }
             }
         };

@@ -34,6 +34,12 @@ namespace HuangD.Sessions
                     session.parties.Add(new Party(def));
                 }
 
+                session.provinces = new List<IProvince>();
+                foreach (var def in modDefs.provinceDefs)
+                {
+                    session.provinces.Add(new Province(def));
+                }
+
                 session.relationMgr = RelationMgr.Builder.Build(session.persons, session.chaoting, session.hougong, session.parties);
 
 
