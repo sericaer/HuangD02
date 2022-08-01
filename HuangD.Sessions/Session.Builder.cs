@@ -21,6 +21,7 @@ namespace HuangD.Sessions
 
                 session.chaoting = ChaotingGroup.Builder.Build(modDefs.officeDefs.OfType<IChaotingOfficeDef>());
                 session.hougong = HougongGroup.Builder.Build(modDefs.officeDefs.OfType<IHougongOfficeDef>());
+                session.moneyMgr = new MoneyMgr(initData.money);
 
                 session.persons = new List<IPerson>();
                 for (int i=0; i<100; i++)
@@ -47,13 +48,4 @@ namespace HuangD.Sessions
             }
         }
     }
-
-    //static class PersonNameGenerator
-    //{
-    //    public static PersonDef def;
-    //    internal static (string family, string given) Gen()
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-    //}
 }

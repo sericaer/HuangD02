@@ -29,8 +29,12 @@ namespace HuangD.Sessions
 
         public IList<IProvince> provinces { get; private set; }
 
-        
+        public IMoneyMgr moneyMgr { get; private set; }
+
         private PersonScoreSystem personScoreSystem = new PersonScoreSystem();
+        private MoneyCollectSystem moneyCollectSystem = new MoneyCollectSystem();
+        private PopTaxSystem popTaxSystem = new PopTaxSystem();
+
         private Random random;
 
         public Session(IModDefs modDefs)
@@ -79,6 +83,10 @@ namespace HuangD.Sessions
                 return relationMgr.person2Parties.Where(x => x.party == party);
             };
 
+            Province.funcGetCurrPopTax = (province) =>
+            {
+                return moneyMgr.tables[IMoneyMgr.CollectType.POPTAX][province]();
+            };
         }
 
         public void OnTimeElapse()
@@ -86,6 +94,10 @@ namespace HuangD.Sessions
             date.day++;
 
             personScoreSystem.Process(persons, date);
+
+            popTaxSystem.Process(moneyMgr, provinces, date);
+            moneyCollectSystem.Process(moneyMgr, date);
+
         }
     }
 }

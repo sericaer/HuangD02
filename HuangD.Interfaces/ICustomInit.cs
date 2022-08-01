@@ -8,5 +8,7 @@ namespace HuangD.Interfaces
     {
         IEmperorInit emperor { get; }
         ICounrtyInit country { get; }
+
+        int money { get; }
     }
 }

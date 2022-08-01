@@ -8,9 +8,13 @@ namespace HuangD.Entities
 {
     public class Province : IProvince
     {
+        public static Func<IProvince, IMoneyMgr.TaxItem> funcGetCurrPopTax { get; set; }
+
         public string name => def.name;
 
         public IOffice masterOffice { get; }
+
+        public IMoneyMgr.TaxItem popTax => funcGetCurrPopTax(this);
 
         private IProvinceDef def;
 

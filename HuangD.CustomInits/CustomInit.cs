@@ -8,5 +8,7 @@ namespace HuangD.CustomInits
         public IEmperorInit emperor { get; set; }
 
         public ICounrtyInit country { get; set; }
+
+        public int money => 2000;
     }
 }

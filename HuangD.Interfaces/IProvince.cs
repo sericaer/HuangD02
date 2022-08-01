@@ -8,6 +8,7 @@ namespace HuangD.Interfaces
     {
         string name { get; }
         IOffice masterOffice { get; }
-        int popCount => 1000; 
+        int popCount => 1000;
+        IMoneyMgr.TaxItem popTax { get; }
     }
 }

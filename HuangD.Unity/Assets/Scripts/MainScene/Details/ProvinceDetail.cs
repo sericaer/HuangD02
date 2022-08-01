@@ -10,6 +10,7 @@ public class ProvinceDetail : MonoBehaviour
     public Text masterOffice;
     public Text masterName;
     public Text popCount;
+    public Text popTax;
 
     public IProvince obj;
 
@@ -26,5 +27,6 @@ public class ProvinceDetail : MonoBehaviour
         masterOffice.text = obj?.masterOffice.name;
         masterName.text = obj?.masterOffice?.currPerson?.fullName;
         popCount.text = obj?.popCount.ToString();
+        popTax.text = obj?.popTax.Value.ToString();
     }
 }
