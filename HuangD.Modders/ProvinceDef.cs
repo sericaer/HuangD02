@@ -7,5 +7,7 @@ namespace HuangD.Modders
         public string name { get; internal set; }
 
         public IOfficeDef master { get; internal set; }
+
+        public int popCount { get; internal set; }
     }
 }

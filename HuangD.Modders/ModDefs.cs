@@ -14,5 +14,7 @@ namespace HuangD.Modders
         public IEnumerable<IProvinceDef> provinceDefs { get; internal set; }
 
         public ICountryDef countryDef { get; internal set; }
+
+        public IPopTaxLevelDef popTaxLevelDef { get; internal set; }
     }
 }

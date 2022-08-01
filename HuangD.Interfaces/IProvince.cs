@@ -8,7 +8,18 @@ namespace HuangD.Interfaces
     {
         string name { get; }
         IOffice masterOffice { get; }
-        int popCount => 1000;
+        int popCount { get; }
         IMoneyMgr.TaxItem popTax { get; }
+
+        PopTaxLevel popTaxLevel { get; set; }
+
+        public enum PopTaxLevel
+        {
+            VeryLow,
+            Low,
+            Mid,
+            High,
+            VeryHigh
+        }
     }
 }

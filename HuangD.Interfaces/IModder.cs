@@ -11,15 +11,23 @@ namespace HuangD.Interfaces
     {
         IPersonDef personDef { get; }
         ICountryDef countryDef { get; }
+        IPopTaxLevelDef popTaxLevelDef { get; }
         IEnumerable<IOfficeDef> officeDefs { get; }
         IEnumerable<IPartyDef> partyDefs { get; }
         IEnumerable<IProvinceDef> provinceDefs { get; }
+    }
+
+    public interface IPopTaxLevelDef
+    {
+        Dictionary<IProvince.PopTaxLevel, int> dictLevelEffect { get; }
     }
 
     public interface IProvinceDef
     {
         string name { get; }
         IOfficeDef master { get; }
+
+        int popCount { get; }
     }
 
     public interface IPartyDef

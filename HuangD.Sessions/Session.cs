@@ -33,7 +33,8 @@ namespace HuangD.Sessions
 
         private PersonScoreSystem personScoreSystem = new PersonScoreSystem();
         private MoneyCollectSystem moneyCollectSystem = new MoneyCollectSystem();
-        private PopTaxSystem popTaxSystem = new PopTaxSystem();
+
+        private PopTaxSystem popTaxSystem;
 
         private Random random;
 

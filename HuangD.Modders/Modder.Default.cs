@@ -1,5 +1,6 @@
 ﻿using HuangD.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 namespace HuangD.Modders
 {
@@ -23,6 +24,18 @@ namespace HuangD.Modders
                     {
                         countryNames = Enumerable.Range(0, 100).Select(x => $"[COUNTRY{x}]").ToArray(),
                         yearNames = Enumerable.Range(0, 100).Select(x => $"[YEAR{x}]").ToArray(),
+                    },
+
+                    popTaxLevelDef = new PopTaxLevelDef()
+                    {
+                        dictLevelEffect = new Dictionary<IProvince.PopTaxLevel, int>()
+                        {
+                            { IProvince.PopTaxLevel.VeryLow, -60 },
+                            { IProvince.PopTaxLevel.Low, -30 },
+                            { IProvince.PopTaxLevel.Mid, 0 },
+                            { IProvince.PopTaxLevel.High, 30 },
+                            { IProvince.PopTaxLevel.VeryHigh, 60 },
+                        }
                     },
 
                     partyDefs = new IPartyDef[]
@@ -142,38 +155,47 @@ namespace HuangD.Modders
                         new ProvinceDef()
                         {
                             name = "PROV0",
+                            popCount = 100
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV1"
+                            name = "PROV1",
+                            popCount = 111
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV2"
+                            name = "PROV2",
+                            popCount = 122
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV3"
+                            name = "PROV3",
+                            popCount = 133
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV4"
+                            name = "PROV4",
+                            popCount = 144
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV5"
+                            name = "PROV5",
+                            popCount = 155
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV6"
+                            name = "PROV6",
+                            popCount = 16
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV7"
+                            name = "PROV7",
+                            popCount = 17
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV8"
+                            name = "PROV8",
+                            popCount = 18
                         }
                     }
                 }

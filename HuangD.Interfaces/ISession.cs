@@ -48,10 +48,10 @@ namespace HuangD.Interfaces
 
             public IEnumerable<(string desc, int value)> effects { get; }
 
-            public TaxItem(int basValue)
+            public TaxItem(int basValue, IEnumerable<(string desc, int value)> effects)
             {
                 this.baseValue = basValue;
-                effects = Enumerable.Empty<(string desc, int value)>();
+                this.effects = effects;
             }
         }
     }

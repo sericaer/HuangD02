@@ -1,6 +1,7 @@
 ﻿using HuangD.Entities;
 using HuangD.Interfaces;
 using HuangD.Relations;
+using HuangD.Systems;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace HuangD.Sessions
                 session.chaoting = ChaotingGroup.Builder.Build(modDefs.officeDefs.OfType<IChaotingOfficeDef>());
                 session.hougong = HougongGroup.Builder.Build(modDefs.officeDefs.OfType<IHougongOfficeDef>());
                 session.moneyMgr = new MoneyMgr(initData.money);
+                session.popTaxSystem = new PopTaxSystem(modDefs.popTaxLevelDef);
 
                 session.persons = new List<IPerson>();
                 for (int i=0; i<100; i++)
