@@ -18,7 +18,7 @@ namespace HuangD.Interfaces
         IEnumerable<IPerson2Party> toPartyRelations { get; }
 
         int power => powerDetail.Sum(x => x.value);
-        int score => scoreItems.Sum(x => x.value);
+        int? score => scoreItems?.Sum(x => x.value);
 
         IOffice currOffice => toOfficeRelations.SingleOrDefault(x => x.isCurrent)?.office;
         IParty party => toPartyRelations.SingleOrDefault()?.party;
