@@ -23,9 +23,20 @@ public class TaxLevelContainer : MonoBehaviour
         }
     }
 
-    public IProvince province;
+    public IProvince province
+    {
+        get
+        {
+            return _province;
+        }
+        set
+        {
+            _province = value;
+        }
+    }
 
     private IEnumerable<IPopTaxLevelDef.TaxLevelEffectGroup> _levelDefs;
+    private IProvince _province;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +44,10 @@ public class TaxLevelContainer : MonoBehaviour
         defaultItem.gameObject.SetActive(false);
     }
 
+    void FixedUpdate()
+    {
+        container.GetComponentsInChildren<TaxLevelItem>().Single(x => x.obj.popTaxLevel == province.popTaxLevel).toggle.isOn = true;
+    }
     private void UpdateItems(TaxLevelItem defaultItem, IEnumerable<IPopTaxLevelDef.TaxLevelEffectGroup> levelDefs)
     {
         var items = container.GetComponentsInChildren<TaxLevelItem>();
@@ -49,7 +64,6 @@ public class TaxLevelContainer : MonoBehaviour
         {
             var item = Instantiate(defaultItem, container).GetComponent<TaxLevelItem>();
             item.obj = obj;
-            item.toggle.isOn = province.popTaxLevel == obj.popTaxLevel;
 
             item.toggle.onValueChanged.AddListener((isOn) =>
             {
