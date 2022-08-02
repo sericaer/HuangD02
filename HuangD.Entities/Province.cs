@@ -32,4 +32,17 @@ namespace HuangD.Entities
             this.buffers = new List<IBuffer>();
         }
     }
+
+    public class Buffer : IBuffer
+    {
+        public IBufferDef def { get; }
+
+        public (int year, int month, int day) startDate { get; }
+
+        public Buffer(IBufferDef def, IDate start)
+        {
+            this.def = def;
+            this.startDate = (start.year, startDate.month, startDate.day);
+        }
+    }
 }

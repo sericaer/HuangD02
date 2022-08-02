@@ -1,5 +1,4 @@
 ﻿using HuangD.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -29,8 +28,7 @@ namespace HuangD.Systems
         {
             var taxItem = new IMoneyMgr.TaxItem(
                 (int)(province.popCount * 0.1),
-                province.buffers.SelectMany(x => x.effects.OfType<IPopTaxEffectDef>())
-                                .Select(x=>(x.name, x.Value))
+                province.buffers.SelectMany(x => x.def.effects.OfType<IPopTaxEffectDef>().Select(y=>(x.def.name, y.Value)))
                                 .Prepend(("TaxLevel", CalcEffectValueByLevel(province.popTaxLevel))));
 
             return taxItem;

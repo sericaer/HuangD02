@@ -1,5 +1,4 @@
 ﻿using HuangD.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 namespace HuangD.Modders
@@ -56,6 +55,29 @@ namespace HuangD.Modders
                         {
                             name = "P3"
                         },
+                    },
+
+                    bufferDefs = new IBufferDef[]
+                    {
+                        new ProviceBufferDef()
+                        {
+                            name = "MSDB",
+                            effects = new IEffectDef[]
+                            {
+                                new PopTaxEffectDef()
+                                {
+                                    Value = -50
+                                }
+                            },
+                            isStart = (province, date) =>
+                            {
+                                return date.day == 30 && province.popTaxLevel > IProvince.PopTaxLevel.Mid;
+                            },
+                            isEnd = (province, date) =>
+                            {
+                                return province.popTaxLevel < IProvince.PopTaxLevel.Mid;
+                            }
+                        }
                     },
 
                     officeDefs = new IOfficeDef[]
@@ -207,5 +229,11 @@ namespace HuangD.Modders
             }
         }
         
+    }
+
+    internal class PopTaxEffectDef : IPopTaxEffectDef
+    {
+        public string name { get; } = "人口税";
+        public int Value { get; internal set; }
     }
 }

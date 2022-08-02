@@ -33,7 +33,7 @@ namespace HuangD.Sessions
 
         private PersonScoreSystem personScoreSystem = new PersonScoreSystem();
         private MoneyCollectSystem moneyCollectSystem = new MoneyCollectSystem();
-
+        private ProvinceBufferSystem proviceBufferSystem;
         private PopTaxSystem popTaxSystem;
 
         private Random random;
@@ -99,6 +99,10 @@ namespace HuangD.Sessions
             popTaxSystem.Process(moneyMgr, provinces, date);
             moneyCollectSystem.Process(moneyMgr, date);
 
+            proviceBufferSystem.Process(provinces, date);
+
         }
     }
+
+
 }

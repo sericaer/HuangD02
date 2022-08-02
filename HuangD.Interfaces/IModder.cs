@@ -15,6 +15,8 @@ namespace HuangD.Interfaces
         IEnumerable<IOfficeDef> officeDefs { get; }
         IEnumerable<IPartyDef> partyDefs { get; }
         IEnumerable<IProvinceDef> provinceDefs { get; }
+
+        IEnumerable<IBufferDef> bufferDefs { get; }
     }
 
     public interface IPopTaxLevelDef

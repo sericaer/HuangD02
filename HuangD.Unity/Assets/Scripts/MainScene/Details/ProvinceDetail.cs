@@ -1,7 +1,6 @@
 using HuangD.Interfaces;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +13,7 @@ public class ProvinceDetail : MonoBehaviour
     public Text popCount;
     public Text popTax;
     public GameObject popTaxLevelContainer;
+    public BufferContainer bufferContainer;
 
     public IProvince obj
     {
@@ -71,16 +71,18 @@ public class ProvinceDetail : MonoBehaviour
             return;
         }
 
-        Label.text = obj?.name;
-        masterOffice.text = obj?.masterOffice.name;
-        masterName.text = obj?.masterOffice?.currPerson?.fullName;
-        popCount.text = obj?.popCount.ToString();
-        popTax.text = obj?.popTax.Value.ToString();
+        Label.text = obj.name;
+        masterOffice.text = obj.masterOffice.name;
+        masterName.text = obj.masterOffice?.currPerson?.fullName;
+        popCount.text = obj.popCount.ToString();
+        popTax.text = obj.popTax.Value.ToString();
 
         var currLevel = taxLevels.SingleOrDefault(x => x.name == obj.popTaxLevel.ToString());
         if(!currLevel.isOn)
         {
             currLevel.isOn = true;
         }
+
+        bufferContainer.Upate(obj.buffers);
     }
 }

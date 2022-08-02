@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HuangD.Entities\HuangD.Entities.csproj" />
     <ProjectReference Include="..\HuangD.Interfaces\HuangD.Interfaces.csproj" />
   </ItemGroup>
 
