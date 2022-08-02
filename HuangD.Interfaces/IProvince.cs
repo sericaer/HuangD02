@@ -13,6 +13,8 @@ namespace HuangD.Interfaces
 
         PopTaxLevel popTaxLevel { get; set; }
 
+        List<IBuffer> buffers { get; }
+
         public enum PopTaxLevel
         {
             VeryLow,

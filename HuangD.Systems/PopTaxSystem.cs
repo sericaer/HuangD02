@@ -28,11 +28,10 @@ namespace HuangD.Systems
         private IMoneyMgr.TaxItem CalcTaxItem(IProvince province)
         {
             var taxItem = new IMoneyMgr.TaxItem(
-                (int)(province.popCount * 0.1), 
-                new (string desc, int value)[]
-                {
-                    ("TaxLevel", CalcEffectValueByLevel(province.popTaxLevel))
-                });
+                (int)(province.popCount * 0.1),
+                province.buffers.SelectMany(x => x.effects.OfType<IPopTaxEffectDef>())
+                                .Select(x=>(x.name, x.Value))
+                                .Prepend(("TaxLevel", CalcEffectValueByLevel(province.popTaxLevel))));
 
             return taxItem;
         }

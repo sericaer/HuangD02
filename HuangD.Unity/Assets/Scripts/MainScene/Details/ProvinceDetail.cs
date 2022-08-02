@@ -57,8 +57,8 @@ public class ProvinceDetail : MonoBehaviour
         {
             return new TipInfo()
             {
-                bodyText = $"基础值 {obj.popTax.baseValue}\n"
-                         + String.Join("\n", obj.popTax.effects.Select(x => $"{x.desc} {x.value:+0;-#}%"))
+                bodyText = $"基础值    {obj.popTax.baseValue}\n"
+                         + String.Join("\n", obj.popTax.effects.Select(x => $"{x.desc}    {x.value:+0;-#}%"))
             };
         };
     }

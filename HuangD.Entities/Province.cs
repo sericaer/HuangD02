@@ -10,24 +10,26 @@ namespace HuangD.Entities
     {
         public static Func<IProvince, IMoneyMgr.TaxItem> funcGetCurrPopTax { get; set; }
 
-        public string name => def.name;
-
         public IOffice masterOffice { get; }
+        public int popCount { get; }
+        public IProvince.PopTaxLevel popTaxLevel { get; set; }
+        public List<IBuffer> buffers { get; }
+
+        public string name => def.name;
 
         public IMoneyMgr.TaxItem popTax => funcGetCurrPopTax(this);
 
-        public int popCount { get; }
-
-        public IProvince.PopTaxLevel popTaxLevel { get; set; }
 
         private IProvinceDef def;
 
         public Province(IProvinceDef def)
         {
             this.def = def;
+
             this.masterOffice = new Office(def.master);
             this.popCount = def.popCount;
             this.popTaxLevel = IProvince.PopTaxLevel.Mid;
+            this.buffers = new List<IBuffer>();
         }
     }
 }
