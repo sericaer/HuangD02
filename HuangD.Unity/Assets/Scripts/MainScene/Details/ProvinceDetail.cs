@@ -14,6 +14,7 @@ public class ProvinceDetail : MonoBehaviour
     public Text popTax;
     public GameObject popTaxLevelContainer;
     public BufferContainer bufferContainer;
+    public Slider liveliHood;
 
     public IProvince obj
     {
@@ -61,6 +62,15 @@ public class ProvinceDetail : MonoBehaviour
                          + String.Join("\n", obj.popTax.effects.Select(x => $"{x.desc}    {x.value:+0;-#}%"))
             };
         };
+
+        liveliHood.GetComponent<LazyUpdateTooltipTrigger>().funcGetTipInfo = () =>
+        {
+            return new TipInfo()
+            {
+                bodyText = $"»ù´¡Öµ    {obj.livelihood.baseValue}\n"
+                         + String.Join("\n", obj.livelihood.effects.Select(x => $"{x.desc}    {x.value:+0;-#}%"))
+            };
+        };
     }
 
     // Update is called once per frame
@@ -76,6 +86,7 @@ public class ProvinceDetail : MonoBehaviour
         masterName.text = obj.masterOffice?.currPerson?.fullName;
         popCount.text = obj.popCount.ToString();
         popTax.text = obj.popTax.Value.ToString();
+        liveliHood.value = obj.livelihood.Value;
 
         var currLevel = taxLevels.SingleOrDefault(x => x.name == obj.popTaxLevel.ToString());
         if(!currLevel.isOn)

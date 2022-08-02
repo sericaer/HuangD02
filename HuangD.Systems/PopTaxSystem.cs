@@ -6,11 +6,12 @@ namespace HuangD.Systems
 {
     public class PopTaxSystem
     {
-        private Dictionary<IProvince.PopTaxLevel, int> dictEffectByPopTaxLevel;
+        private Dictionary<IProvince.PopTaxLevel, IPopTaxEffectDef> dictEffectByPopTaxLevel;
 
         public PopTaxSystem(IPopTaxLevelDef def)
         {
-            dictEffectByPopTaxLevel = def.dictLevelEffect;
+            dictEffectByPopTaxLevel = def.taxLevelEffectGroups.SelectMany(x => x.effectDefs.OfType<IPopTaxEffectDef>().Select(effect => (x.popTaxLevel, effect)))
+                .ToDictionary(key => key.popTaxLevel, value => value.effect);
         }
 
         public void Process(IMoneyMgr moneyMgr, IList<IProvince> provinces, IDate date)
@@ -36,7 +37,7 @@ namespace HuangD.Systems
 
         private int CalcEffectValueByLevel(IProvince.PopTaxLevel popTaxLevel)
         {
-            return dictEffectByPopTaxLevel[popTaxLevel];
+            return dictEffectByPopTaxLevel[popTaxLevel].Value;
         }
     }
 }

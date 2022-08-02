@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HuangD.Interfaces
@@ -10,6 +11,8 @@ namespace HuangD.Interfaces
         IOffice masterOffice { get; }
         int popCount { get; }
         IMoneyMgr.TaxItem popTax { get; }
+
+        LiveliHood livelihood { get; }
 
         PopTaxLevel popTaxLevel { get; set; }
 
@@ -22,6 +25,13 @@ namespace HuangD.Interfaces
             Mid,
             High,
             VeryHigh
+        }
+
+        public class LiveliHood
+        {
+            public int baseValue { get; set; }
+            public int Value => baseValue * (100 + effects.Sum(x => x.value)) / 100;
+            public IEnumerable<(string desc, int value)> effects { get; set; }
         }
     }
 }

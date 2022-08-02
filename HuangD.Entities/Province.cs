@@ -19,6 +19,7 @@ namespace HuangD.Entities
 
         public IMoneyMgr.TaxItem popTax => funcGetCurrPopTax(this);
 
+        public IProvince.LiveliHood livelihood { get; }
 
         private IProvinceDef def;
 
@@ -30,6 +31,7 @@ namespace HuangD.Entities
             this.popCount = def.popCount;
             this.popTaxLevel = IProvince.PopTaxLevel.Mid;
             this.buffers = new List<IBuffer>();
+            this.livelihood = new IProvince.LiveliHood();
         }
     }
 

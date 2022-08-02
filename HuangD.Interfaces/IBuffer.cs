@@ -31,4 +31,8 @@ namespace HuangD.Interfaces
     public interface IPopTaxEffectDef : IEffectDef
     {
     }
+
+    public interface ILiveliHoodEffectDef : IEffectDef
+    {
+    }
 }

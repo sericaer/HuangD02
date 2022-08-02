@@ -35,6 +35,7 @@ namespace HuangD.Sessions
         private MoneyCollectSystem moneyCollectSystem = new MoneyCollectSystem();
         private ProvinceBufferSystem proviceBufferSystem;
         private PopTaxSystem popTaxSystem;
+        private LiveliHoodSystem liveliHoodSystem;
 
         private Random random;
 
@@ -98,11 +99,37 @@ namespace HuangD.Sessions
 
             popTaxSystem.Process(moneyMgr, provinces, date);
             moneyCollectSystem.Process(moneyMgr, date);
+            liveliHoodSystem.Process(provinces, date);
 
             proviceBufferSystem.Process(provinces, date);
 
         }
     }
 
+    internal class LiveliHoodSystem
+    {
+        private Dictionary<IProvince.PopTaxLevel, ILiveliHoodEffectDef> dictEffectByPopTaxLevel;
 
+        public LiveliHoodSystem(IPopTaxLevelDef def)
+        {
+            dictEffectByPopTaxLevel = def.taxLevelEffectGroups.SelectMany(x => x.effectDefs.OfType<ILiveliHoodEffectDef>().Select(effect => (x.popTaxLevel, effect)))
+                .ToDictionary(key => key.popTaxLevel, value => value.effect);
+        }
+
+        internal void Process(IList<IProvince> provinces, IDate date)
+        {
+            foreach(var province in provinces)
+            {
+                province.livelihood.baseValue = 100;
+                province.livelihood.effects = province.buffers.SelectMany(x => x.def.effects.OfType<ILiveliHoodEffectDef>().Select(y => (x.def.name, y.Value)))
+                    .Prepend(("TaxLevel", CalcEffectValueByLevel(province.popTaxLevel)));
+            }
+
+        }
+
+        private int CalcEffectValueByLevel(IProvince.PopTaxLevel popTaxLevel)
+        {
+            return dictEffectByPopTaxLevel[popTaxLevel].Value;
+        }
+    }
 }

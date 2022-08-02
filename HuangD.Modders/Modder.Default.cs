@@ -27,14 +27,54 @@ namespace HuangD.Modders
 
                     popTaxLevelDef = new PopTaxLevelDef()
                     {
-                        dictLevelEffect = new Dictionary<IProvince.PopTaxLevel, int>()
+                        taxLevelEffectGroups = new IPopTaxLevelDef.TaxLevelEffectGroup[]
                         {
-                            { IProvince.PopTaxLevel.VeryLow, -60 },
-                            { IProvince.PopTaxLevel.Low, -30 },
-                            { IProvince.PopTaxLevel.Mid, 0 },
-                            { IProvince.PopTaxLevel.High, 30 },
-                            { IProvince.PopTaxLevel.VeryHigh, 60 },
-                        }
+                            new IPopTaxLevelDef.TaxLevelEffectGroup()
+                            {
+                                popTaxLevel = IProvince.PopTaxLevel.VeryLow,
+                                effectDefs = new IEffectDef[]
+                                {
+                                    new PopTaxEffectDef() { Value = -60 },
+                                    new LiveliHoodEffectDef() { Value = 0 }
+                                }
+                            },
+                            new IPopTaxLevelDef.TaxLevelEffectGroup()
+                            {
+                                popTaxLevel = IProvince.PopTaxLevel.Low,
+                                effectDefs = new IEffectDef[]
+                                {
+                                    new PopTaxEffectDef() { Value = -30 },
+                                    new LiveliHoodEffectDef() { Value = -10 }
+                                }
+                            },
+                            new IPopTaxLevelDef.TaxLevelEffectGroup()
+                            {
+                                popTaxLevel = IProvince.PopTaxLevel.Mid,
+                                effectDefs = new IEffectDef[]
+                                {
+                                    new PopTaxEffectDef() { Value = 0 },
+                                    new LiveliHoodEffectDef() { Value = -20 }
+                                }
+                            },
+                            new IPopTaxLevelDef.TaxLevelEffectGroup()
+                            {
+                                popTaxLevel = IProvince.PopTaxLevel.High,
+                                effectDefs = new IEffectDef[]
+                                {
+                                    new PopTaxEffectDef() { Value = -30 },
+                                    new LiveliHoodEffectDef() { Value = -30 }
+                                }
+                            },
+                            new IPopTaxLevelDef.TaxLevelEffectGroup()
+                            {
+                                popTaxLevel = IProvince.PopTaxLevel.VeryHigh,
+                                effectDefs = new IEffectDef[]
+                                {
+                                    new PopTaxEffectDef() { Value = 60 },
+                                    new LiveliHoodEffectDef() { Value = -40 }
+                                }
+                            },
+                        },
                     },
 
                     partyDefs = new IPartyDef[]
@@ -61,7 +101,7 @@ namespace HuangD.Modders
                     {
                         new ProviceBufferDef()
                         {
-                            name = "MSDB",
+                            name = "民生凋敝",
                             effects = new IEffectDef[]
                             {
                                 new PopTaxEffectDef()

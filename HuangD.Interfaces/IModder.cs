@@ -19,9 +19,17 @@ namespace HuangD.Interfaces
         IEnumerable<IBufferDef> bufferDefs { get; }
     }
 
-    public interface IPopTaxLevelDef
+    public interface IPopTaxLevelDef 
     {
-        Dictionary<IProvince.PopTaxLevel, int> dictLevelEffect { get; }
+        IEnumerable<TaxLevelEffectGroup> taxLevelEffectGroups { get; }
+
+        class TaxLevelEffectGroup
+        {
+            public IProvince.PopTaxLevel popTaxLevel;
+            public IEnumerable<IEffectDef> effectDefs;
+        }
+
+        Dictionary<IProvince.PopTaxLevel, int> dictLevelPopTaxEffect { get; }
     }
 
     public interface IProvinceDef

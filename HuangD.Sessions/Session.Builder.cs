@@ -24,6 +24,7 @@ namespace HuangD.Sessions
                 session.hougong = HougongGroup.Builder.Build(modDefs.officeDefs.OfType<IHougongOfficeDef>());
                 session.moneyMgr = new MoneyMgr(initData.money);
                 session.popTaxSystem = new PopTaxSystem(modDefs.popTaxLevelDef);
+                session.liveliHoodSystem = new LiveliHoodSystem(modDefs.popTaxLevelDef);
                 session.proviceBufferSystem = new ProvinceBufferSystem(modDefs.bufferDefs.OfType<IProviceBufferDef>());
 
                 session.persons = new List<IPerson>();
