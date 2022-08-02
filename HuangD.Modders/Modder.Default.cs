@@ -61,7 +61,7 @@ namespace HuangD.Modders
                                 popTaxLevel = IProvince.PopTaxLevel.High,
                                 effectDefs = new IEffectDef[]
                                 {
-                                    new PopTaxEffectDef() { Value = -30 },
+                                    new PopTaxEffectDef() { Value = 30 },
                                     new LiveliHoodEffectDef() { Value = -30 }
                                 }
                             },

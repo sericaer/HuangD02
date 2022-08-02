@@ -14,6 +14,8 @@ public class ProvinceDetail : MonoBehaviour
     public Text popTax;
     public GameObject popTaxLevelContainer;
     public BufferContainer bufferContainer;
+    public TaxLevelContainer taxLevelContainer;
+
     public Slider liveliHood;
 
     public IProvince obj
@@ -25,33 +27,46 @@ public class ProvinceDetail : MonoBehaviour
         set
         {
             _obj = value;
+
+            if(_obj != null)
+            {
+                taxLevelContainer.province = obj;
+                taxLevelContainer.objs = Global.modder.defs.popTaxLevelDef.taxLevelEffectGroups;
+            }
+
             this.gameObject.SetActive(obj != null);
         }
     }
 
-    private Toggle[] taxLevels;
+    //private Toggle[] taxLevels;
 
     private IProvince _obj;
+
+    //public void OnTaxLevelChanged(IProvince.PopTaxLevel popTaxLevel)
+    //{
+    //    obj.popTaxLevel = popTaxLevel;
+    //}
+
     // Start is called before the first frame update
     void Start()
     {
         obj = null;
 
-        taxLevels = popTaxLevelContainer.GetComponentsInChildren<Toggle>();
+        //taxLevels = popTaxLevelContainer.GetComponentsInChildren<Toggle>();
 
-        foreach (var level in taxLevels)
-        {
-            level.onValueChanged.AddListener((isOn) =>
-            {
-                if(!isOn)
-                {
-                    return;
-                }
+        //foreach (var level in taxLevels)
+        //{
+        //    level.onValueChanged.AddListener((isOn) =>
+        //    {
+        //        if(!isOn)
+        //        {
+        //            return;
+        //        }
 
-                var curr = taxLevels.SingleOrDefault(x => x.isOn);
-                obj.popTaxLevel = Enum.Parse<IProvince.PopTaxLevel>(curr.name);
-            });
-        }
+        //        var curr = taxLevels.SingleOrDefault(x => x.isOn);
+        //        obj.popTaxLevel = Enum.Parse<IProvince.PopTaxLevel>(curr.name);
+        //    });
+        //}
 
 
         popTax.GetComponent<LazyUpdateTooltipTrigger>().funcGetTipInfo = () =>
@@ -88,11 +103,11 @@ public class ProvinceDetail : MonoBehaviour
         popTax.text = obj.popTax.Value.ToString();
         liveliHood.value = obj.livelihood.Value;
 
-        var currLevel = taxLevels.SingleOrDefault(x => x.name == obj.popTaxLevel.ToString());
-        if(!currLevel.isOn)
-        {
-            currLevel.isOn = true;
-        }
+        //var currLevel = taxLevels.SingleOrDefault(x => x.name == obj.popTaxLevel.ToString());
+        //if(!currLevel.isOn)
+        //{
+        //    currLevel.isOn = true;
+        //}
 
         bufferContainer.Upate(obj.buffers);
     }

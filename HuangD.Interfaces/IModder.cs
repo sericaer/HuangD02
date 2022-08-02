@@ -28,8 +28,6 @@ namespace HuangD.Interfaces
             public IProvince.PopTaxLevel popTaxLevel;
             public IEnumerable<IEffectDef> effectDefs;
         }
-
-        Dictionary<IProvince.PopTaxLevel, int> dictLevelPopTaxEffect { get; }
     }
 
     public interface IProvinceDef
