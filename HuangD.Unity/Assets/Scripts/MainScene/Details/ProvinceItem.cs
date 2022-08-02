@@ -31,7 +31,7 @@ public class ProvinceItem : MonoBehaviour
 
     private IProvince _obj;
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         Label.text = obj?.name;
     }
