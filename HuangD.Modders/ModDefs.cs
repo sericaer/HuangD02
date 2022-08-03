@@ -1,4 +1,5 @@
 ﻿using HuangD.Interfaces;
+using LogicSimEngine.Interfaces;
 using System.Collections.Generic;
 
 namespace HuangD.Modders

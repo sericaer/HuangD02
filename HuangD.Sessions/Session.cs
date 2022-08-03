@@ -2,6 +2,7 @@
 using HuangD.Entities.Offices;
 using HuangD.Interfaces;
 using HuangD.Systems;
+using LogicSimEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,10 +38,14 @@ namespace HuangD.Sessions
         private PopTaxSystem popTaxSystem;
         private LiveliHoodSystem liveliHoodSystem;
 
+        private LogicSimEngine.Engine engine = new LogicSimEngine.Engine();
+
         private Random random;
 
         public Session(IModDefs modDefs)
         {
+            this.modDefs = modDefs;
+
             random = new Random();
 
             Person.funcGetToOfficeRelations = (person) =>
@@ -101,8 +106,20 @@ namespace HuangD.Sessions
             moneyCollectSystem.Process(moneyMgr, date);
             liveliHoodSystem.Process(provinces, date);
 
-            proviceBufferSystem.Process(provinces, date);
+            var context = new Context(this.GetContext());
 
+            foreach(var province in provinces)
+            {
+                engine.bufferSystem.Process(province, context, modDefs.bufferDefs.OfType<IProviceBufferDef>());
+            }
+
+        }
+        private IDictionary<string, Func<object>> GetContext()
+        {
+            return new Dictionary<string, Func<object>>()
+            {
+                { "day", ()=>date.day }
+            };
         }
     }
 

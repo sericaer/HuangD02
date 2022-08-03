@@ -10,9 +10,4 @@
     <OutputPath>..\HuangD.Unity\Assets\Depends\</OutputPath>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\HuangD.Interfaces\HuangD.Interfaces.csproj" />
-    <ProjectReference Include="..\LogicSimEngine\LogicSimEngine.csproj" />
-  </ItemGroup>
-
 </Project>

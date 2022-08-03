@@ -19,6 +19,7 @@
     <ProjectReference Include="..\HuangD.Interfaces\HuangD.Interfaces.csproj" />
     <ProjectReference Include="..\HuangD.Relations\HuangD.Relations.csproj" />
     <ProjectReference Include="..\HuangD.Systems\HuangD.Systems.csproj" />
+    <ProjectReference Include="..\LogicSimEngine\LogicSimEngine.csproj" />
   </ItemGroup>
 
 </Project>

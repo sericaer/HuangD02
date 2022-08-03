@@ -1,4 +1,5 @@
 ﻿using HuangD.Interfaces;
+using LogicSimEngine.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 namespace HuangD.Modders
@@ -109,14 +110,16 @@ namespace HuangD.Modders
                                     Value = -50
                                 }
                             },
-                            isStart = (province, date) =>
+                            isStart = (context) =>
                             {
-                                return date.day == 30 && province.popTaxLevel > IProvince.PopTaxLevel.Mid;
+                                return (int)context["day"] == 30 && (int)context["province_livelihood"] <= 60;
                             },
-                            isEnd = (province, date) =>
+                            isEnd = (context) =>
                             {
-                                return province.popTaxLevel < IProvince.PopTaxLevel.Mid;
-                            }
+                                return  (int)context["day"] == 30 && (int)context["province_livelihood"] > 70;
+                            },
+                            startRandom = 30,
+                            endRandom = 9,
                         }
                     },
 

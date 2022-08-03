@@ -1,11 +1,12 @@
-﻿using System;
+﻿using LogicSimEngine.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace HuangD.Interfaces
 {
-    public interface IProvince
+    public interface IProvince : IBufferOwner
     {
         string name { get; }
         IOffice masterOffice { get; }
@@ -16,7 +17,7 @@ namespace HuangD.Interfaces
 
         PopTaxLevel popTaxLevel { get; set; }
 
-        List<IBuffer> buffers { get; }
+        //List<IBuffer> buffers { get; }
 
         public enum PopTaxLevel
         {

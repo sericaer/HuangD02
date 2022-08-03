@@ -1,4 +1,5 @@
 ﻿using HuangD.Interfaces;
+using LogicSimEngine.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

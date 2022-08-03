@@ -1,5 +1,6 @@
 ﻿using HuangD.Entities.Offices;
 using HuangD.Interfaces;
+using LogicSimEngine.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,12 +15,13 @@ namespace HuangD.Entities
         public int popCount { get; }
         public IProvince.PopTaxLevel popTaxLevel { get; set; }
         public List<IBuffer> buffers { get; }
+        public IProvince.LiveliHood livelihood { get; }
 
         public string name => def.name;
 
         public IMoneyMgr.TaxItem popTax => funcGetCurrPopTax(this);
 
-        public IProvince.LiveliHood livelihood { get; }
+        public IDictionary<string, Func<object>> context { get; private set; }
 
         private IProvinceDef def;
 
@@ -32,19 +34,10 @@ namespace HuangD.Entities
             this.popTaxLevel = IProvince.PopTaxLevel.Mid;
             this.buffers = new List<IBuffer>();
             this.livelihood = new IProvince.LiveliHood();
-        }
-    }
-
-    public class Buffer : IBuffer
-    {
-        public IBufferDef def { get; }
-
-        public (int year, int month, int day) startDate { get; }
-
-        public Buffer(IBufferDef def, IDate start)
-        {
-            this.def = def;
-            this.startDate = (start.year, startDate.month, startDate.day);
+            this.context = new Dictionary<string, Func<object>>()
+            {
+                { "province_livelihood", ()=>livelihood.Value }
+            };
         }
     }
 }
