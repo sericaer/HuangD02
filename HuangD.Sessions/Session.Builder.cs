@@ -26,7 +26,6 @@ namespace HuangD.Sessions
                 session.moneyMgr = new MoneyMgr(initData.money);
                 session.popTaxSystem = new PopTaxSystem(modDefs.popTaxLevelDef);
                 session.liveliHoodSystem = new LiveliHoodSystem(modDefs.popTaxLevelDef);
-                session.proviceBufferSystem = new ProvinceBufferSystem(modDefs.bufferDefs.OfType<IProviceBufferDef>());
 
                 session.persons = new List<IPerson>();
                 for (int i=0; i<100; i++)
