@@ -29,7 +29,7 @@ public class CustomInitScene : MonoBehaviour
 
     public void OnFinished()
     {
-        var customInit = new CustomInit();
+        var customInit = CustomInit.Default;
 
         var panels = new List<CustomInitPanel>();
         customInitContainer.GetComponentsInChildren(true, panels);
