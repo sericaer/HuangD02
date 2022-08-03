@@ -8,6 +8,8 @@ namespace HuangD.CustomInits
     {
         public static CustomInit Default = new CustomInit()
         {
+            seed = "DEFAULT",
+
             emperor = new EmperorInit()
             {
                 familyName = "F1",

@@ -4,11 +4,14 @@ namespace LogicSimEngine
 {
     public class Engine
     {
+        public GRandom random;
+
         public BufferSystem bufferSystem { get; }
 
-        public Engine()
+        public Engine(string seed)
         {
-            bufferSystem = new BufferSystem();
+            random = new GRandom(seed);
+            bufferSystem = new BufferSystem(random);
         }
     }
 }

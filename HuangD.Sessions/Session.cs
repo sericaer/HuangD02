@@ -38,7 +38,7 @@ namespace HuangD.Sessions
         private PopTaxSystem popTaxSystem;
         private LiveliHoodSystem liveliHoodSystem;
 
-        private LogicSimEngine.Engine engine = new LogicSimEngine.Engine();
+        private LogicSimEngine.Engine engine;
 
         private Random random;
 

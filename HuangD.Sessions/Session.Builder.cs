@@ -15,6 +15,7 @@ namespace HuangD.Sessions
             public static Session Build(ICustomInit initData, IModDefs modDefs)
             {
                 var session = new Session(modDefs);
+                session.engine = new LogicSimEngine.Engine(initData.seed);
 
                 session.yearName = initData.country.yearName;
                 session.emperor = new Person((initData.emperor.familyName, initData.emperor.givenName));

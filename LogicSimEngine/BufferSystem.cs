@@ -6,6 +6,13 @@ namespace LogicSimEngine
 {
     public class BufferSystem
     {
+        private GRandom random;
+
+        public BufferSystem(GRandom random)
+        {
+            this.random = random;
+        }
+
         public void Process(IBufferOwner owner, IContext context, IEnumerable<IBufferDef> defs)
         {
             context.ext = owner.context;
@@ -15,11 +22,17 @@ namespace LogicSimEngine
 
             foreach (var buffer in needRemoveBuffers)
             {
-                owner.buffers.Remove(buffer);
+                if(random.isTrue(buffer.def.endRandom))
+                {
+                    owner.buffers.Remove(buffer);
+                }
             }
             foreach (var def in needAddBufferDefs)
             {
-                owner.buffers.Add(new Buffer(def));
+                if(random.isTrue(def.startRandom))
+                {
+                    owner.buffers.Add(new Buffer(def));
+                }
             }
 
             context.ext = null;

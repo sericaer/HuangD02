@@ -10,5 +10,6 @@ namespace HuangD.Interfaces
         ICounrtyInit country { get; }
 
         int money { get; }
+        string seed { get; }
     }
 }
