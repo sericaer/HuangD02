@@ -26,7 +26,7 @@ namespace HuangD.Sessions
                 session.moneyMgr = new MoneyMgr(initData.money);
                 session.popTaxSystem = new PopTaxSystem(modDefs.popTaxLevelDef);
                 session.liveliHoodSystem = new LiveliHoodSystem(modDefs.popTaxLevelDef);
-                session.popCountIncreaseSystem = new PopCountIncreaseSystem();
+                session.popCountIncreaseSystem = new PopIncreaseSystem();
 
                 session.persons = new List<IPerson>();
                 for (int i=0; i<100; i++)

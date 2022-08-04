@@ -37,7 +37,7 @@ namespace HuangD.Sessions
         private MoneyCollectSystem moneyCollectSystem = new MoneyCollectSystem();
         private PopTaxSystem popTaxSystem;
         private LiveliHoodSystem liveliHoodSystem;
-        private PopCountIncreaseSystem popCountIncreaseSystem;
+        private PopIncreaseSystem popCountIncreaseSystem;
         private LogicSimEngine.Engine engine;
 
         private Random random;
