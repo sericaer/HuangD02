@@ -99,8 +99,8 @@ public class ProvinceDetail : MonoBehaviour
         Label.text = obj.name;
         masterOffice.text = obj.masterOffice.name;
         masterName.text = obj.masterOffice?.currPerson?.fullName;
-        popCount.text = obj.popCount.ToString();
-        popTax.text = obj.popTax.Value.ToString();
+        popCount.text = (obj.popCount/100.0).ToString();
+        popTax.text = (obj.popTax.Value/100.0).ToString();
         liveliHood.value = obj.livelihood.Value;
 
         //var currLevel = taxLevels.SingleOrDefault(x => x.name == obj.popTaxLevel.ToString());

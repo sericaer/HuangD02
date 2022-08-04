@@ -227,48 +227,58 @@ namespace HuangD.Modders
                     {
                         new ProvinceDef()
                         {
-                            name = "PROV0",
-                            popCount = 100
+                            name = "冀州",
+                            popCount = 10000
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV1",
-                            popCount = 111
+                            name = "豫州",
+                            popCount = 10000
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV2",
-                            popCount = 122
+                            name = "徐州",
+                            popCount = 6000
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV3",
-                            popCount = 133
+                            name = "雍州",
+                            popCount = 6000
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV4",
-                            popCount = 144
+                            name = "荆州",
+                            popCount = 8000
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV5",
-                            popCount = 155
+                            name = "扬州",
+                            popCount = 4000
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV6",
-                            popCount = 16
+                            name = "并州",
+                            popCount = 1000
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV7",
-                            popCount = 17
+                            name = "幽州",
+                            popCount = 2000
                         },
                         new ProvinceDef()
                         {
-                            name = "PROV8",
-                            popCount = 18
+                            name = "凉州",
+                            popCount = 1200
+                        },
+                        new ProvinceDef()
+                        {
+                            name = "益州",
+                            popCount = 8000
+                        },
+                        new ProvinceDef()
+                        {
+                            name = "青州",
+                            popCount = 3000
                         }
                     }
                 }

@@ -14,6 +14,6 @@ public class Pop : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        count.text = Global.session.popCount.ToString();
+        count.text = (Global.session.popCount/100.0).ToString();
     }
 }

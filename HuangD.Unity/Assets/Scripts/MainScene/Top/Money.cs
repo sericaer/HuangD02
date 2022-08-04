@@ -22,6 +22,6 @@ public class Money : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        count.text = Global.session.moneyMgr.current.ToString();
+        count.text = (Global.session.moneyMgr.current/100.0).ToString();
     }
 }

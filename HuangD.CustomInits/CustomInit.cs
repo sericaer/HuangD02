@@ -11,6 +11,6 @@ namespace HuangD.CustomInits
 
         public ICounrtyInit country { get; set; }
 
-        public int money => 2000;
+        public int money => 200000;
     }
 }
