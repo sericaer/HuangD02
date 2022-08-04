@@ -21,6 +21,11 @@ namespace HuangD.Interfaces
 
     }
 
+    public interface IPopIncreaseEffectDef : IEffectDef
+    {
+
+    }
+
     //public interface IEffectDef
     //{
     //    int Value { get; }

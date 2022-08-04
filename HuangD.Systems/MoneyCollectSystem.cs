@@ -9,7 +9,7 @@ namespace HuangD.Systems
         {
             if (date.day == 30)
             {
-                moneyMgr.current += moneyMgr.tables.Sum(x => x.Value.Sum(y => y.Value().Value));
+                moneyMgr.current += (int)moneyMgr.tables.Sum(x => x.Value.Sum(y => y.Value().Value));
             }
         }
     }

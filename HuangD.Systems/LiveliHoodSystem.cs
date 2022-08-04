@@ -25,7 +25,7 @@ namespace HuangD.Systems
 
         }
 
-        private int CalcEffectValueByLevel(IProvince.PopTaxLevel popTaxLevel)
+        private double CalcEffectValueByLevel(IProvince.PopTaxLevel popTaxLevel)
         {
             return dictEffectByPopTaxLevel[popTaxLevel].Value;
         }

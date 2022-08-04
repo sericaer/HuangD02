@@ -2,7 +2,7 @@
 {
     public interface IEffectDef
     {
-        int Value { get; }
+        double Value { get; }
         string name { get; }
     }
 }

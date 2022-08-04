@@ -18,11 +18,11 @@ namespace HuangD.Interfaces
         public class TaxItem
         {
             public int baseValue { get; }
-            public int Value => baseValue * Math.Max(0, (100 + effects.Sum(x => x.value))) / 100;
+            public double Value => baseValue * Math.Max(0, (100 + effects.Sum(x => x.value))) / 100;
 
-            public IEnumerable<(string desc, int value)> effects { get; }
+            public IEnumerable<(string desc, double value)> effects { get; }
 
-            public TaxItem(int basValue, IEnumerable<(string desc, int value)> effects)
+            public TaxItem(int basValue, IEnumerable<(string desc, double value)> effects)
             {
                 this.baseValue = basValue;
                 this.effects = effects;

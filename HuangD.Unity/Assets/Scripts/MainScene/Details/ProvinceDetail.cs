@@ -86,6 +86,14 @@ public class ProvinceDetail : MonoBehaviour
                          + String.Join("\n", obj.livelihood.effects.Select(x => $"{x.desc}    {x.value:+0;-#}%"))
             };
         };
+
+        popCount.GetComponent<LazyUpdateTooltipTrigger>().funcGetTipInfo = () =>
+        {
+            return new TipInfo()
+            {
+                bodyText =String.Join("\n", obj.popCountChange.effects.Select(x => $"{x.desc}    {x.value:+0;-#}%"))
+            };
+        };
     }
 
     // Update is called once per frame

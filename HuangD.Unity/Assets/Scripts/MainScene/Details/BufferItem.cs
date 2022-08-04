@@ -15,7 +15,7 @@ public class BufferItem : MonoBehaviour
     {
         GetComponent<LazyUpdateTooltipTrigger>().funcGetTipInfo = () =>
         {
-            return new TipInfo() { bodyText = String.Join("\n", obj.def.effects.Select(x => $"{x.name}    {x.Value}")) };
+            return new TipInfo() { bodyText = String.Join("\n", obj.def.effects.Select(x => $"{x.name}    {x.Value}%")) };
         };    
     }
 

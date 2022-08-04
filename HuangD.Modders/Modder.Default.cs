@@ -35,8 +35,8 @@ namespace HuangD.Modders
                                 popTaxLevel = IProvince.PopTaxLevel.VeryLow,
                                 effectDefs = new IEffectDef[]
                                 {
-                                    new PopTaxEffectDef() { Value = -60 },
-                                    new LiveliHoodEffectDef() { Value = 0 }
+                                    new PopTaxEffectDef() { Value = -50 },
+                                    new LiveliHoodEffectDef() { Value = -5 }
                                 }
                             },
                             new IPopTaxLevelDef.TaxLevelEffectGroup()
@@ -107,7 +107,11 @@ namespace HuangD.Modders
                             {
                                 new PopTaxEffectDef()
                                 {
-                                    Value = -50
+                                    Value = -40
+                                },
+                                new PopIncreaseEffectDef()
+                                {
+                                    Value = -1.5
                                 }
                             },
                             isStart = (context) =>
@@ -292,9 +296,15 @@ namespace HuangD.Modders
         
     }
 
+    internal class PopIncreaseEffectDef : IPopIncreaseEffectDef
+    {
+        public string name { get; } = "人口增长";
+        public double Value { get; internal set; }
+    }
+
     internal class PopTaxEffectDef : IPopTaxEffectDef
     {
         public string name { get; } = "人口税";
-        public int Value { get; internal set; }
+        public double Value { get; internal set; }
     }
 }

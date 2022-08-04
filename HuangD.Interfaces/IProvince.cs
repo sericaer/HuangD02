@@ -10,12 +10,14 @@ namespace HuangD.Interfaces
     {
         string name { get; }
         IOffice masterOffice { get; }
-        int popCount { get; }
+        int popCount { get; set; }
         IMoneyMgr.TaxItem popTax { get; }
 
         LiveliHood livelihood { get; }
 
         PopTaxLevel popTaxLevel { get; set; }
+
+        PopCountChange popCountChange { get; }
 
         //List<IBuffer> buffers { get; }
 
@@ -31,8 +33,13 @@ namespace HuangD.Interfaces
         public class LiveliHood
         {
             public int baseValue { get; set; }
-            public int Value => baseValue * (100 + effects.Sum(x => x.value)) / 100;
-            public IEnumerable<(string desc, int value)> effects { get; set; }
+            public int Value => (int)(baseValue * (100 + effects.Sum(x => x.value)) / 100);
+            public IEnumerable<(string desc, double value)> effects { get; set; }
+        }
+
+        public class PopCountChange
+        {
+            public IEnumerable<(string desc, double value)> effects { get; set; }
         }
     }
 }

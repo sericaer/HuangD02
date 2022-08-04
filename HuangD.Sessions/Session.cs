@@ -37,7 +37,7 @@ namespace HuangD.Sessions
         private MoneyCollectSystem moneyCollectSystem = new MoneyCollectSystem();
         private PopTaxSystem popTaxSystem;
         private LiveliHoodSystem liveliHoodSystem;
-
+        private PopCountIncreaseSystem popCountIncreaseSystem;
         private LogicSimEngine.Engine engine;
 
         private Random random;
@@ -105,6 +105,7 @@ namespace HuangD.Sessions
             popTaxSystem.Process(moneyMgr, provinces, date);
             moneyCollectSystem.Process(moneyMgr, date);
             liveliHoodSystem.Process(provinces, date);
+            popCountIncreaseSystem.Process(provinces, date);
 
             var context = new Context(this.GetContext());
 
