@@ -120,6 +120,14 @@ namespace HuangD.Modders
                             },
                             startRandom = 30,
                             endRandom = 9,
+                            startEvent = new EventDef
+                            {
+                                title = "EVET_BUFFER_START"
+                            },
+                            endEvent = new EventDef
+                            {
+                                title = "EVET_BUFFER_END"
+                            }
                         }
                     },
 

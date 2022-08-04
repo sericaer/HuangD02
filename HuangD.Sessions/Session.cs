@@ -3,6 +3,7 @@ using HuangD.Entities.Offices;
 using HuangD.Interfaces;
 using HuangD.Systems;
 using LogicSimEngine;
+using LogicSimEngine.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -95,7 +96,7 @@ namespace HuangD.Sessions
             };
         }
 
-        public void OnTimeElapse()
+        public IEnumerable<IEvent> OnTimeElapse()
         {
             date.day++;
 
@@ -109,7 +110,10 @@ namespace HuangD.Sessions
 
             foreach(var province in provinces)
             {
-                engine.bufferSystem.Process(province, context, modDefs.bufferDefs.OfType<IProviceBufferDef>());
+                foreach(var eventObj in engine.bufferSystem.Process(province, context, modDefs.bufferDefs.OfType<IProviceBufferDef>()))
+                {
+                    yield return eventObj;
+                }
             }
         }
 

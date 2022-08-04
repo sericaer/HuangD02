@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using LogicSimEngine.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace HuangD.Interfaces
@@ -24,7 +25,7 @@ namespace HuangD.Interfaces
 
         IRelationMgr relationMgr { get; }
 
-        void OnTimeElapse();
+        IEnumerable<IEvent> OnTimeElapse();
 
         IMoneyMgr moneyMgr { get; }
     }

@@ -4,7 +4,7 @@ namespace LogicSimEngine
 {
     public class Engine
     {
-        public GRandom random;
+        public GRandom random { get; }
 
         public BufferSystem bufferSystem { get; }
 

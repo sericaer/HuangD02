@@ -13,7 +13,7 @@ namespace LogicSimEngine
             this.random = random;
         }
 
-        public void Process(IBufferOwner owner, IContext context, IEnumerable<IBufferDef> defs)
+        public IEnumerable<IEvent> Process(IBufferOwner owner, IContext context, IEnumerable<IBufferDef> defs)
         {
             context.ext = owner.context;
 
@@ -24,14 +24,36 @@ namespace LogicSimEngine
             {
                 if(random.isTrue(buffer.def.endRandom))
                 {
-                    owner.buffers.Remove(buffer);
+                    if(buffer.def.endEvent != null)
+                    {
+                        var eventObj = new Event(buffer.def.endEvent, context);
+                        eventObj.OnExit = ()=> owner.buffers.Remove(buffer);
+
+                        yield return eventObj;
+                    }
+                    else
+                    {
+                        owner.buffers.Remove(buffer);
+                    }
+
                 }
             }
             foreach (var def in needAddBufferDefs)
             {
                 if(random.isTrue(def.startRandom))
                 {
-                    owner.buffers.Add(new Buffer(def));
+                    if (def.startEvent != null)
+                    {
+                        var eventObj = new Event(def.startEvent, context);
+                        eventObj.OnExit = () => owner.buffers.Add(new Buffer(def));
+
+                        yield return eventObj;
+                    }
+                    else
+                    {
+                        owner.buffers.Add(new Buffer(def));
+                    }
+
                 }
             }
 

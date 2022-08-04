@@ -12490,6 +12490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiCanvas: {fileID: 1269164792}
   personDetailDialog: {fileID: 8669223529640137039, guid: b7d0c027812a1f743b8466fd1ec0eadc, type: 3}
+  eventDialog: {fileID: 6647731549914451853, guid: 423ac40e9eefbaf448dc04d95b8c8da3, type: 3}
 --- !u!4 &1521002722
 Transform:
   m_ObjectHideFlags: 0

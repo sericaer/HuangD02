@@ -14,5 +14,7 @@ namespace LogicSimEngine.Interfaces
 
         int startRandom { get; }
         int endRandom { get; }
+        IEventDef endEvent { get; }
+        IEventDef startEvent { get; }
     }
 }
