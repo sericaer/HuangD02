@@ -31,42 +31,20 @@ public class ProvinceDetail : MonoBehaviour
             if(_obj != null)
             {
                 taxLevelContainer.province = obj;
-                taxLevelContainer.objs = Global.modder.defs.popTaxLevelDef.taxLevelEffectGroups;
             }
 
             this.gameObject.SetActive(obj != null);
         }
     }
 
-    //private Toggle[] taxLevels;
 
     private IProvince _obj;
 
-    //public void OnTaxLevelChanged(IProvince.PopTaxLevel popTaxLevel)
-    //{
-    //    obj.popTaxLevel = popTaxLevel;
-    //}
 
     // Start is called before the first frame update
     void Start()
     {
         obj = null;
-
-        //taxLevels = popTaxLevelContainer.GetComponentsInChildren<Toggle>();
-
-        //foreach (var level in taxLevels)
-        //{
-        //    level.onValueChanged.AddListener((isOn) =>
-        //    {
-        //        if(!isOn)
-        //        {
-        //            return;
-        //        }
-
-        //        var curr = taxLevels.SingleOrDefault(x => x.isOn);
-        //        obj.popTaxLevel = Enum.Parse<IProvince.PopTaxLevel>(curr.name);
-        //    });
-        //}
 
 
         popTax.GetComponent<LazyUpdateTooltipTrigger>().funcGetTipInfo = () =>
@@ -110,12 +88,6 @@ public class ProvinceDetail : MonoBehaviour
         popCount.text = (obj.popCount/100.0).ToString();
         popTax.text = (obj.popTax.Value/100.0).ToString();
         liveliHood.value = obj.livelihood.Value;
-
-        //var currLevel = taxLevels.SingleOrDefault(x => x.name == obj.popTaxLevel.ToString());
-        //if(!currLevel.isOn)
-        //{
-        //    currLevel.isOn = true;
-        //}
 
         bufferContainer.Upate(obj.buffers);
     }
