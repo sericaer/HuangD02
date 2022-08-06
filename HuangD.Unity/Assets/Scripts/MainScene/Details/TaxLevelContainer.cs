@@ -20,9 +20,12 @@ public class TaxLevelContainer : MonoBehaviour
         {
             _province = value;
 
-            foreach(var item in container.GetComponentsInChildren<TaxLevelItem>())
+            foreach (var obj in Global.modder.defs.popTaxLevelDef.taxLevelEffectGroups)
             {
-                item.province = _province;
+                var item = Instantiate(defaultItem, container).GetComponent<TaxLevelItem>();
+                item.obj = obj;
+                item.province = province;
+                item.gameObject.SetActive(true);
             }
         }
     }
@@ -34,34 +37,25 @@ public class TaxLevelContainer : MonoBehaviour
     {
         defaultItem.gameObject.SetActive(false);
 
-        var items = container.GetComponentsInChildren<TaxLevelItem>();
+        //var items = container.GetComponentsInChildren<TaxLevelItem>();
 
-        var levelDefs = Global.modder.defs.popTaxLevelDef.taxLevelEffectGroups;
+        //var levelDefs = Global.modder.defs.popTaxLevelDef.taxLevelEffectGroups;
 
-        var needRemveItems = items.Where(x => !levelDefs.Contains(x.obj)).ToArray();
-        var needAddObjs = levelDefs.Except(items.Select(x => x.obj)).ToArray();
+        //var needRemveItems = items.Where(x => !levelDefs.Contains(x.obj)).ToArray();
+        //var needAddObjs = levelDefs.Except(items.Select(x => x.obj)).ToArray();
 
-        foreach (var item in needRemveItems)
-        {
-            Destroy(item.gameObject);
-        }
+        //foreach (var item in needRemveItems)
+        //{
+        //    Destroy(item.gameObject);
+        //}
 
-        foreach (var obj in needAddObjs)
-        {
-            var item = Instantiate(defaultItem, container).GetComponent<TaxLevelItem>();
-            item.obj = obj;
-
-            item.toggle.onValueChanged.AddListener((isOn) =>
-            {
-                if (!isOn)
-                {
-                    return;
-                }
-
-                province.popTaxLevel = obj.popTaxLevel;
-            });
-
-            item.gameObject.SetActive(true);
-        }
+        //foreach (var obj in needAddObjs)
+        //{
+        //    var item = Instantiate(defaultItem, container).GetComponent<TaxLevelItem>();
+        //    item.obj = obj;;
+        //    item.gameObject.SetActive(true);
+        //}
     }
+
+    
 }

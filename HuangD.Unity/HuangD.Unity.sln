@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{441CEA25-E9BE-D1BC-6AA5-E5EA822194F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniRx", "UniRx.csproj", "{8EA38597-EF91-9DCA-DB1B-46BECA85753F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniRx.Examples", "UniRx.Examples.csproj", "{7403C54A-4EFD-C386-BE6E-95B34FF44687}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCharts.Editor", "XCharts.Editor.csproj", "{00A3D9A5-49C2-66B4-C666-7CFA94DD14DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{6C9953CF-7D12-2CE0-0043-BE652F1C0E7B}"
@@ -17,6 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HuangD.Interfaces", "..\Hua
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HuangD.Sessions", "..\HuangD.Sessions\HuangD.Sessions.csproj", "{F99AEF44-2160-40E3-A9B4-3F56799B39BE}"
 	ProjectSection(ProjectDependencies) = postProject
+		{2665DD35-1257-43B6-88C6-701236614087} = {2665DD35-1257-43B6-88C6-701236614087}
 		{E93ACB88-CDB2-4254-85F7-71463E7FE912} = {E93ACB88-CDB2-4254-85F7-71463E7FE912}
 		{7AA71DBC-E249-448E-80C1-BDEACE9668D6} = {7AA71DBC-E249-448E-80C1-BDEACE9668D6}
 	EndProjectSection
@@ -31,9 +36,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HuangD.Relations", "..\Huan
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HuangD.Systems", "..\HuangD.Systems\HuangD.Systems.csproj", "{D39E517E-80C3-4632-ACE0-AFBE3F4385DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicSimEngine.Interfaces", "..\LogicSimEngine.Interfaces\LogicSimEngine.Interfaces.csproj", "{87A10740-2F39-4201-A06E-86577A876C18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicSimEngine.Interfaces", "..\LogicSimEngine.Interfaces\LogicSimEngine.Interfaces.csproj", "{87A10740-2F39-4201-A06E-86577A876C18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicSimEngine", "..\LogicSimEngine\LogicSimEngine.csproj", "{A5EB6981-65C5-4D4E-9B75-48C8E87C4A6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicSimEngine", "..\LogicSimEngine\LogicSimEngine.csproj", "{A5EB6981-65C5-4D4E-9B75-48C8E87C4A6A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HuangD.Commands", "..\HuangD.Commands\HuangD.Commands.csproj", "{2665DD35-1257-43B6-88C6-701236614087}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +64,14 @@ Global
 		{441CEA25-E9BE-D1BC-6AA5-E5EA822194F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{441CEA25-E9BE-D1BC-6AA5-E5EA822194F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{441CEA25-E9BE-D1BC-6AA5-E5EA822194F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EA38597-EF91-9DCA-DB1B-46BECA85753F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EA38597-EF91-9DCA-DB1B-46BECA85753F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EA38597-EF91-9DCA-DB1B-46BECA85753F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EA38597-EF91-9DCA-DB1B-46BECA85753F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7403C54A-4EFD-C386-BE6E-95B34FF44687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7403C54A-4EFD-C386-BE6E-95B34FF44687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7403C54A-4EFD-C386-BE6E-95B34FF44687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7403C54A-4EFD-C386-BE6E-95B34FF44687}.Release|Any CPU.Build.0 = Release|Any CPU
 		{00A3D9A5-49C2-66B4-C666-7CFA94DD14DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{00A3D9A5-49C2-66B4-C666-7CFA94DD14DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00A3D9A5-49C2-66B4-C666-7CFA94DD14DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -101,6 +116,10 @@ Global
 		{A5EB6981-65C5-4D4E-9B75-48C8E87C4A6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5EB6981-65C5-4D4E-9B75-48C8E87C4A6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5EB6981-65C5-4D4E-9B75-48C8E87C4A6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2665DD35-1257-43B6-88C6-701236614087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2665DD35-1257-43B6-88C6-701236614087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2665DD35-1257-43B6-88C6-701236614087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2665DD35-1257-43B6-88C6-701236614087}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

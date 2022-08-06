@@ -104,7 +104,7 @@ namespace HuangD.Modders
                         {
                             name = "民生凋敝",
                             effects = new IEffectDef[]
-                            {
+                            { 
                                 new PopTaxEffectDef()
                                 {
                                     Value = -40

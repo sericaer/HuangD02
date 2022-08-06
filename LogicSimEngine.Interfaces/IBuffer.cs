@@ -6,4 +6,9 @@
         IBufferDef def { get; }
     }
 
+    public interface ICommand
+    {
+        bool CanExecute();
+        void Execute();
+    }
 }

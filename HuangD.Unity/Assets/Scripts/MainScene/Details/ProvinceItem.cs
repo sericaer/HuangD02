@@ -6,7 +6,7 @@ public class ProvinceItem : MonoBehaviour
 {
     public Text Label;
     public Toggle toggle;
-    public ProvinceDetail provinceDetail;
+    public ProvinceDetail defaultProvinceDetail;
 
     public IProvince obj
     {
@@ -17,22 +17,31 @@ public class ProvinceItem : MonoBehaviour
         set
         {
             _obj = value;
-
-            toggle.onValueChanged.RemoveAllListeners();
-            toggle.onValueChanged.AddListener((isOn) =>
-            {
-                if(isOn)
-                {
-                    provinceDetail.obj = _obj;
-                }
-            });
         }
     }
 
     private IProvince _obj;
+    
+    public void OnSelectChanged(bool isOn)
+    {
+        if (isOn && obj != null)
+        {
+            var old = defaultProvinceDetail.transform.parent.GetComponentInChildren<ProvinceDetail>();
+            Destroy(old?.gameObject);
+
+            var provinceDetail = Instantiate<ProvinceDetail>(defaultProvinceDetail, defaultProvinceDetail.transform.parent);
+            provinceDetail.obj = _obj;
+            provinceDetail.gameObject.SetActive(true);
+        }
+    }
 
     void FixedUpdate()
     {
         Label.text = obj?.name;
+    }
+
+    private void Start()
+    {
+        defaultProvinceDetail.gameObject.SetActive(false);
     }
 }

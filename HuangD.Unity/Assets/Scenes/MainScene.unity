@@ -1735,20 +1735,8 @@ MonoBehaviour:
   m_Group: {fileID: 182219711}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 221342776}
-        m_TargetAssemblyTypeName: TaxLevelItem, Assembly-CSharp
-        m_MethodName: OnChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_IsOn: 1
+      m_Calls: []
+  m_IsOn: 0
 --- !u!114 &221342776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1763,6 +1751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: {fileID: 994122454}
   toggle: {fileID: 221342775}
+  Lock: {fileID: 0}
 --- !u!114 &221342777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15254,7 +15243,19 @@ MonoBehaviour:
   m_Group: {fileID: 676694564}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1800206084}
+        m_TargetAssemblyTypeName: ProvinceItem, Assembly-CSharp
+        m_MethodName: OnSelectChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &1800206084
 MonoBehaviour:
@@ -15270,7 +15271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: {fileID: 608643423}
   toggle: {fileID: 1800206083}
-  provinceDetail: {fileID: 1761034834}
+  defaultProvinceDetail: {fileID: 1761034834}
 --- !u!1 &1829231735
 GameObject:
   m_ObjectHideFlags: 0

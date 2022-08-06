@@ -1,8 +1,8 @@
-﻿using HuangD.Interfaces;
+﻿using HuangD.Commands;
+using HuangD.Interfaces;
 using System;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class TaxLevelItem : MonoBehaviour
@@ -12,8 +12,24 @@ public class TaxLevelItem : MonoBehaviour
     public Image Lock;
 
     public IPopTaxLevelDef.TaxLevelEffectGroup obj;
-    public IProvince province;
+    public IProvince province
+    {
+        get
+        {
+            return _province;
+        }
+        set
+        {
+            _province = value;
 
+            FixedUpdate();
+
+            toggle.BindCommand(new CmdChangePopTaxLevel(province, obj));
+             
+        }
+    }
+
+    private IProvince _province;
     void Start()
     {
         GetComponent<LazyUpdateTooltipTrigger>().funcGetTipInfo = () =>
@@ -25,15 +41,15 @@ public class TaxLevelItem : MonoBehaviour
             };
         };
 
-        toggle.onValueChanged.AddListener((isOn) =>
-        {
-            if (!isOn)
-            {
-                return;
-            }
+        //toggle.onValueChanged.AddListener((isOn) =>
+        //{
+        //    if (!isOn)
+        //    {
+        //        return;
+        //    }
 
-            province.popTaxLevel = obj.popTaxLevel;
-        });
+        //    province.popTaxLevel = obj.popTaxLevel;
+        //});
     }
 
     private void FixedUpdate()

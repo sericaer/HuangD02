@@ -27,13 +27,7 @@ public class ProvinceDetail : MonoBehaviour
         set
         {
             _obj = value;
-
-            if(_obj != null)
-            {
-                taxLevelContainer.province = obj;
-            }
-
-            this.gameObject.SetActive(obj != null);
+            taxLevelContainer.province = obj;
         }
     }
 
@@ -44,9 +38,6 @@ public class ProvinceDetail : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        obj = null;
-
-
         popTax.GetComponent<LazyUpdateTooltipTrigger>().funcGetTipInfo = () =>
         {
             return new TipInfo()
