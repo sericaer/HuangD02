@@ -18,7 +18,7 @@ namespace HuangD.Interfaces
 
         PopTaxLevel popTaxLevel { get; set; }
         MilitaryLevel militaryLevel { get; set; }
-
+        LaborLevel laborLevel { get; set; }
         PopCountChange popCountChange { get; }
 
         //List<IBuffer> buffers { get; }
@@ -33,6 +33,15 @@ namespace HuangD.Interfaces
         }
 
         public enum MilitaryLevel
+        {
+            VeryLow,
+            Low,
+            Mid,
+            High,
+            VeryHigh
+        }
+
+        public enum LaborLevel
         {
             VeryLow,
             Low,

@@ -26,7 +26,7 @@ namespace HuangD.Sessions
                 session.moneyMgr = new MoneyMgr(initData.money);
                 session.militaryMgr = new MilitaryMgr();
                 session.popTaxSystem = new PopTaxSystem(modDefs.popTaxLevelDef);
-                session.liveliHoodSystem = new LiveliHoodSystem(modDefs.popTaxLevelDef, modDefs.militaryLevelDef);
+                session.liveliHoodSystem = new LiveliHoodSystem(modDefs);
                 session.popCountIncreaseSystem = new PopIncreaseSystem();
                 session.militarySystem = new MilitarySystem(modDefs.militaryLevelDef);
 

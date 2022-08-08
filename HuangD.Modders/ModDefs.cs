@@ -20,6 +20,8 @@ namespace HuangD.Modders
 
         public IMilitaryLevelDef militaryLevelDef  { get; internal set; }
 
+        public ILaborLevelDef laborLevelDef { get; internal set; }
+
         public IEnumerable<IBufferDef> bufferDefs { get; internal set; }
     }
 }

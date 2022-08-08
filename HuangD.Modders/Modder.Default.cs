@@ -36,7 +36,7 @@ namespace HuangD.Modders
                                 effectDefs = new IEffectDef[]
                                 {
                                     new PopTaxEffectDef() { Value = -50 },
-                                    new LiveliHoodEffectDef() { Value = -5 }
+                                    new LiveliHoodEffectDef() { Value = -4 }
                                 }
                             },
                             new IPopTaxLevelDef.Item()
@@ -45,7 +45,7 @@ namespace HuangD.Modders
                                 effectDefs = new IEffectDef[]
                                 {
                                     new PopTaxEffectDef() { Value = -30 },
-                                    new LiveliHoodEffectDef() { Value = -10 }
+                                    new LiveliHoodEffectDef() { Value = -8 }
                                 }
                             },
                             new IPopTaxLevelDef.Item()
@@ -54,7 +54,7 @@ namespace HuangD.Modders
                                 effectDefs = new IEffectDef[]
                                 {
                                     new PopTaxEffectDef() { Value = 0 },
-                                    new LiveliHoodEffectDef() { Value = -20 }
+                                    new LiveliHoodEffectDef() { Value = -12 }
                                 }
                             },
                             new IPopTaxLevelDef.Item()
@@ -63,7 +63,7 @@ namespace HuangD.Modders
                                 effectDefs = new IEffectDef[]
                                 {
                                     new PopTaxEffectDef() { Value = 30 },
-                                    new LiveliHoodEffectDef() { Value = -30 }
+                                    new LiveliHoodEffectDef() { Value = -18 }
                                 }
                             },
                             new IPopTaxLevelDef.Item()
@@ -72,7 +72,7 @@ namespace HuangD.Modders
                                 effectDefs = new IEffectDef[]
                                 {
                                     new PopTaxEffectDef() { Value = 60 },
-                                    new LiveliHoodEffectDef() { Value = -40 }
+                                    new LiveliHoodEffectDef() { Value = -25 }
                                 }
                             },
                         },
@@ -88,7 +88,7 @@ namespace HuangD.Modders
                                 effectDefs = new IEffectDef[]
                                 {
                                     new MilitaryCountEffectDef() { Value = -50 },
-                                    new LiveliHoodEffectDef() { Value = -5 }
+                                    new LiveliHoodEffectDef() { Value = -4 }
                                 }
                             },
                             new IMilitaryLevelDef.Item()
@@ -97,7 +97,7 @@ namespace HuangD.Modders
                                 effectDefs = new IEffectDef[]
                                 {
                                     new MilitaryCountEffectDef() { Value = -30 },
-                                    new LiveliHoodEffectDef() { Value = -10 }
+                                    new LiveliHoodEffectDef() { Value = -8 }
                                 }
                             },
                             new IMilitaryLevelDef.Item()
@@ -106,7 +106,7 @@ namespace HuangD.Modders
                                 effectDefs = new IEffectDef[]
                                 {
                                     new MilitaryCountEffectDef() { Value = 0 },
-                                    new LiveliHoodEffectDef() { Value = -20 }
+                                    new LiveliHoodEffectDef() { Value = -12 }
                                 }
                             },
                             new IMilitaryLevelDef.Item()
@@ -115,7 +115,7 @@ namespace HuangD.Modders
                                 effectDefs = new IEffectDef[]
                                 {
                                     new MilitaryCountEffectDef() { Value = 30 },
-                                    new LiveliHoodEffectDef() { Value = -30 }
+                                    new LiveliHoodEffectDef() { Value = -18 }
                                 }
                             },
                             new IMilitaryLevelDef.Item()
@@ -124,7 +124,59 @@ namespace HuangD.Modders
                                 effectDefs = new IEffectDef[]
                                 {
                                     new MilitaryCountEffectDef() { Value = 60 },
-                                    new LiveliHoodEffectDef() { Value = -40 }
+                                    new LiveliHoodEffectDef() { Value = -25 }
+                                }
+                            },
+                        },
+                    },
+
+                    laborLevelDef = new LaborLevelDef()
+                    {
+                        items = new ILaborLevelDef.Item[]
+                        {
+                            new ILaborLevelDef.Item()
+                            {
+                                level = IProvince.LaborLevel.VeryLow,
+                                effectDefs = new IEffectDef[]
+                                {
+                                    //new MilitaryCountEffectDef() { Value = -50 },
+                                    new LiveliHoodEffectDef() { Value = -4 }
+                                }
+                            },
+                            new ILaborLevelDef.Item()
+                            {
+                                level = IProvince.LaborLevel.Low,
+                                effectDefs = new IEffectDef[]
+                                {
+                                    //new MilitaryCountEffectDef() { Value = -30 },
+                                    new LiveliHoodEffectDef() { Value = -8 }
+                                }
+                            },
+                            new ILaborLevelDef.Item()
+                            {
+                                level = IProvince.LaborLevel.Mid,
+                                effectDefs = new IEffectDef[]
+                                {
+                                    //new MilitaryCountEffectDef() { Value = 0 },
+                                    new LiveliHoodEffectDef() { Value = -12 }
+                                }
+                            },
+                            new ILaborLevelDef.Item()
+                            {
+                                level = IProvince.LaborLevel.High,
+                                effectDefs = new IEffectDef[]
+                                {
+                                    //new MilitaryCountEffectDef() { Value = 30 },
+                                    new LiveliHoodEffectDef() { Value = -18 }
+                                }
+                            },
+                            new ILaborLevelDef.Item()
+                            {
+                                level = IProvince.LaborLevel.VeryHigh,
+                                effectDefs = new IEffectDef[]
+                                {
+                                    //new MilitaryCountEffectDef() { Value = 60 },
+                                    new LiveliHoodEffectDef() { Value = -25 }
                                 }
                             },
                         },

@@ -14,6 +14,8 @@ namespace HuangD.Interfaces
         ICountryDef countryDef { get; }
         IPopTaxLevelDef popTaxLevelDef { get; }
         IMilitaryLevelDef militaryLevelDef { get; }
+        ILaborLevelDef laborLevelDef { get; }
+
         IEnumerable<IOfficeDef> officeDefs { get; }
         IEnumerable<IPartyDef> partyDefs { get; }
         IEnumerable<IProvinceDef> provinceDefs { get; }
@@ -28,6 +30,17 @@ namespace HuangD.Interfaces
         class Item
         {
             public IProvince.MilitaryLevel level;
+            public IEnumerable<IEffectDef> effectDefs;
+        }
+    }
+
+    public interface ILaborLevelDef
+    {
+        IEnumerable<Item> items { get; }
+
+        class Item
+        {
+            public IProvince.LaborLevel level;
             public IEnumerable<IEffectDef> effectDefs;
         }
     }

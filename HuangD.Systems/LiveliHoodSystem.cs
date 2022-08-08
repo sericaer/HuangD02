@@ -8,13 +8,17 @@ namespace HuangD.Systems
     {
         private Dictionary<IProvince.PopTaxLevel, ILiveliHoodEffectDef> dictPopTaxLevel;
         private Dictionary<IProvince.MilitaryLevel, ILiveliHoodEffectDef> dictMilitaryLevel;
+        private Dictionary<IProvince.LaborLevel, ILiveliHoodEffectDef> dictLaborLevel;
 
-        public LiveliHoodSystem(IPopTaxLevelDef popTaxLevelDef, IMilitaryLevelDef militaryLevelDef)
+        public LiveliHoodSystem(IModDefs modDefs)
         {
-            dictPopTaxLevel = popTaxLevelDef.items.SelectMany(x => x.effectDefs.OfType<ILiveliHoodEffectDef>().Select(effect => (x.popTaxLevel, effect)))
+            dictPopTaxLevel = modDefs.popTaxLevelDef.items.SelectMany(x => x.effectDefs.OfType<ILiveliHoodEffectDef>().Select(effect => (x.popTaxLevel, effect)))
                 .ToDictionary(key => key.popTaxLevel, value => value.effect);
 
-            dictMilitaryLevel = militaryLevelDef.items.SelectMany(x => x.effectDefs.OfType<ILiveliHoodEffectDef>().Select(effect => (x.level, effect)))
+            dictMilitaryLevel = modDefs.militaryLevelDef.items.SelectMany(x => x.effectDefs.OfType<ILiveliHoodEffectDef>().Select(effect => (x.level, effect)))
+                .ToDictionary(key => key.level, value => value.effect);
+
+            dictLaborLevel = modDefs.laborLevelDef.items.SelectMany(x => x.effectDefs.OfType<ILiveliHoodEffectDef>().Select(effect => (x.level, effect)))
                 .ToDictionary(key => key.level, value => value.effect);
         }
 
@@ -24,8 +28,9 @@ namespace HuangD.Systems
             {
                 province.livelihood.baseValue = 100;
                 province.livelihood.effects = province.buffers.SelectMany(x => x.def.effects.OfType<ILiveliHoodEffectDef>().Select(y => (x.def.name, y.Value)))
-                    .Prepend(("人口税", dictPopTaxLevel[province.popTaxLevel].Value))
-                    .Prepend(("兵役", dictMilitaryLevel[province.militaryLevel].Value));
+                    .Prepend(("劳役", dictLaborLevel[province.laborLevel].Value))
+                    .Prepend(("兵役", dictMilitaryLevel[province.militaryLevel].Value))
+                    .Prepend(("人口税", dictPopTaxLevel[province.popTaxLevel].Value));
             }
 
         }

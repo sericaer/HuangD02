@@ -18,6 +18,7 @@ public class ProvinceDetail : MonoBehaviour
     public BufferContainer bufferContainer;
     public TaxLevelContainer taxLevelContainer;
     public MilitaryLevelContainer MilitaryLevelContainer;
+    public LaborLevelContainer LaborLevelContainer;
 
     public Slider liveliHood;
 
@@ -32,6 +33,7 @@ public class ProvinceDetail : MonoBehaviour
             _obj = value;
             taxLevelContainer.province = obj;
             MilitaryLevelContainer.province = obj;
+            LaborLevelContainer.province = obj;
         }
     }
 

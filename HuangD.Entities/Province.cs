@@ -17,6 +17,8 @@ namespace HuangD.Entities
         public int popCount { get; set; }
         public IProvince.PopTaxLevel popTaxLevel { get; set; }
         public IProvince.MilitaryLevel militaryLevel { get; set; }
+        public IProvince.LaborLevel laborLevel { get; set; }
+
         public IProvince.LiveliHood livelihood { get; }
 
         public List<IBuffer> buffers { get; }
