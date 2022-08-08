@@ -18,6 +18,8 @@ namespace HuangD.Modders
 
         public IPopTaxLevelDef popTaxLevelDef { get; internal set; }
 
+        public IMilitaryLevelDef militaryLevelDef  { get; internal set; }
+
         public IEnumerable<IBufferDef> bufferDefs { get; internal set; }
     }
 }

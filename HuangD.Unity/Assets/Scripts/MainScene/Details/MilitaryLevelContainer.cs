@@ -1,10 +1,9 @@
 ﻿using HuangD.Interfaces;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TaxLevelContainer : MonoBehaviour
+public class MilitaryLevelContainer : MonoBehaviour
 {
-    public TaxLevelItem defaultItem;
+    public MilitaryLevelItem defaultItem;
 
     private Transform container => defaultItem.transform.parent;
 
@@ -18,9 +17,9 @@ public class TaxLevelContainer : MonoBehaviour
         {
             _province = value;
 
-            foreach (var obj in Global.modder.defs.popTaxLevelDef.items)
+            foreach (var obj in Global.modder.defs.militaryLevelDef.items)
             {
-                var item = Instantiate(defaultItem, container).GetComponent<TaxLevelItem>();
+                var item = Instantiate(defaultItem, container).GetComponent<MilitaryLevelItem>();
                 item.obj = obj;
                 item.province = province;
                 item.gameObject.SetActive(true);

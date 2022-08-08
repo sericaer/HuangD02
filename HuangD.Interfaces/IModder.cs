@@ -13,6 +13,7 @@ namespace HuangD.Interfaces
         IPersonDef personDef { get; }
         ICountryDef countryDef { get; }
         IPopTaxLevelDef popTaxLevelDef { get; }
+        IMilitaryLevelDef militaryLevelDef { get; }
         IEnumerable<IOfficeDef> officeDefs { get; }
         IEnumerable<IPartyDef> partyDefs { get; }
         IEnumerable<IProvinceDef> provinceDefs { get; }
@@ -20,11 +21,22 @@ namespace HuangD.Interfaces
         IEnumerable<IBufferDef> bufferDefs { get; }
     }
 
+    public interface IMilitaryLevelDef
+    {
+        IEnumerable<Item> items { get; }
+
+        class Item
+        {
+            public IProvince.MilitaryLevel level;
+            public IEnumerable<IEffectDef> effectDefs;
+        }
+    }
+
     public interface IPopTaxLevelDef 
     {
-        IEnumerable<TaxLevelEffectGroup> taxLevelEffectGroups { get; }
+        IEnumerable<Item> items { get; }
 
-        class TaxLevelEffectGroup
+        class Item
         {
             public IProvince.PopTaxLevel popTaxLevel;
             public IEnumerable<IEffectDef> effectDefs;

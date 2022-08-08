@@ -16,12 +16,22 @@ namespace HuangD.Interfaces
         LiveliHood livelihood { get; }
 
         PopTaxLevel popTaxLevel { get; set; }
+        MilitaryLevel militaryLevel { get; set; }
 
         PopCountChange popCountChange { get; }
 
         //List<IBuffer> buffers { get; }
 
         public enum PopTaxLevel
+        {
+            VeryLow,
+            Low,
+            Mid,
+            High,
+            VeryHigh
+        }
+
+        public enum MilitaryLevel
         {
             VeryLow,
             Low,

@@ -5,6 +5,6 @@ namespace HuangD.Modders
 {
     internal class PopTaxLevelDef : IPopTaxLevelDef
     {
-        public IEnumerable<IPopTaxLevelDef.TaxLevelEffectGroup> taxLevelEffectGroups { get; internal set; }
+        public IEnumerable<IPopTaxLevelDef.Item> items { get; internal set; }
     }
 }

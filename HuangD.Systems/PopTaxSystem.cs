@@ -10,7 +10,7 @@ namespace HuangD.Systems
 
         public PopTaxSystem(IPopTaxLevelDef def)
         {
-            dictEffectByPopTaxLevel = def.taxLevelEffectGroups.SelectMany(x => x.effectDefs.OfType<IPopTaxEffectDef>().Select(effect => (x.popTaxLevel, effect)))
+            dictEffectByPopTaxLevel = def.items.SelectMany(x => x.effectDefs.OfType<IPopTaxEffectDef>().Select(effect => (x.popTaxLevel, effect)))
                 .ToDictionary(key => key.popTaxLevel, value => value.effect);
         }
 

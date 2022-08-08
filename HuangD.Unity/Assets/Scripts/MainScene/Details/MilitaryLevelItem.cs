@@ -5,12 +5,12 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TaxLevelItem : MonoBehaviour
+public class MilitaryLevelItem : MonoBehaviour
 {
     public Text Label;
     public Toggle toggle;
 
-    public IPopTaxLevelDef.Item obj;
+    public IMilitaryLevelDef.Item obj;
     public IProvince province
     {
         get
@@ -23,8 +23,8 @@ public class TaxLevelItem : MonoBehaviour
 
             FixedUpdate();
 
-            toggle.BindCommand(new CmdChangePopTaxLevel(province, obj));
-             
+            toggle.BindCommand(new CmdChangeMilitaryLevel(province, obj));
+
         }
     }
 
@@ -35,7 +35,7 @@ public class TaxLevelItem : MonoBehaviour
         {
             return new TipInfo()
             {
-                bodyText = $"{obj.popTaxLevel}:\n"
+                bodyText = $"{obj.level}:\n"
                  + String.Join("\n", obj.effectDefs.Select(x => $"{x.name}    {x.Value:+0;-#}%"))
             };
         };
@@ -43,12 +43,12 @@ public class TaxLevelItem : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(obj == null)
+        if (obj == null)
         {
             return;
         }
 
-        Label.text = obj.popTaxLevel.ToString();
-        toggle.isOn = obj.popTaxLevel == province.popTaxLevel;
+        Label.text = obj.level.ToString();
+        toggle.isOn = obj.level == province.militaryLevel;
     }
 }

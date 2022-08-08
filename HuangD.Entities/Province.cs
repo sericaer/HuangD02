@@ -10,16 +10,20 @@ namespace HuangD.Entities
     public class Province : IProvince
     {
         public static Func<IProvince, IMoneyMgr.TaxItem> funcGetCurrPopTax { get; set; }
+        public static Func<IProvince, IMilitaryMgr.Item> funcGetCurrMilitary { get; set; }
+
+        public string name => def.name;
 
         public IOffice masterOffice { get; }
         public int popCount { get; set; }
         public IProvince.PopTaxLevel popTaxLevel { get; set; }
-        public List<IBuffer> buffers { get; }
+        public IProvince.MilitaryLevel militaryLevel { get; set; }
         public IProvince.LiveliHood livelihood { get; }
 
-        public string name => def.name;
+        public List<IBuffer> buffers { get; }
 
         public IMoneyMgr.TaxItem popTax => funcGetCurrPopTax(this);
+        public IMilitaryMgr.Item military => funcGetCurrMilitary(this);
 
         public IDictionary<string, Func<object>> context { get; private set; }
         public IProvince.PopCountChange popCountChange { get; }

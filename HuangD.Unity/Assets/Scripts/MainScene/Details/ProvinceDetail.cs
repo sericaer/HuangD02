@@ -15,6 +15,7 @@ public class ProvinceDetail : MonoBehaviour
     public GameObject popTaxLevelContainer;
     public BufferContainer bufferContainer;
     public TaxLevelContainer taxLevelContainer;
+    public MilitaryLevelContainer MilitaryLevelContainer;
 
     public Slider liveliHood;
 
@@ -28,6 +29,7 @@ public class ProvinceDetail : MonoBehaviour
         {
             _obj = value;
             taxLevelContainer.province = obj;
+            MilitaryLevelContainer.province = obj;
         }
     }
 
