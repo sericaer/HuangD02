@@ -39,4 +39,9 @@ namespace HuangD.Interfaces
     public interface ILiveliHoodEffectDef : IEffectDef
     {
     }
+
+    public interface IMilitaryCountEffectDef : IEffectDef
+    {
+
+    }
 }

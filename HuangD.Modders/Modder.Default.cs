@@ -87,6 +87,7 @@ namespace HuangD.Modders
                                 level = IProvince.MilitaryLevel.VeryLow,
                                 effectDefs = new IEffectDef[]
                                 {
+                                    new MilitaryCountEffectDef() { Value = -50 },
                                     new LiveliHoodEffectDef() { Value = -5 }
                                 }
                             },
@@ -95,6 +96,7 @@ namespace HuangD.Modders
                                 level = IProvince.MilitaryLevel.Low,
                                 effectDefs = new IEffectDef[]
                                 {
+                                    new MilitaryCountEffectDef() { Value = -30 },
                                     new LiveliHoodEffectDef() { Value = -10 }
                                 }
                             },
@@ -103,6 +105,7 @@ namespace HuangD.Modders
                                 level = IProvince.MilitaryLevel.Mid,
                                 effectDefs = new IEffectDef[]
                                 {
+                                    new MilitaryCountEffectDef() { Value = 0 },
                                     new LiveliHoodEffectDef() { Value = -20 }
                                 }
                             },
@@ -111,6 +114,7 @@ namespace HuangD.Modders
                                 level = IProvince.MilitaryLevel.High,
                                 effectDefs = new IEffectDef[]
                                 {
+                                    new MilitaryCountEffectDef() { Value = 30 },
                                     new LiveliHoodEffectDef() { Value = -30 }
                                 }
                             },
@@ -119,6 +123,7 @@ namespace HuangD.Modders
                                 level = IProvince.MilitaryLevel.VeryHigh,
                                 effectDefs = new IEffectDef[]
                                 {
+                                    new MilitaryCountEffectDef() { Value = 60 },
                                     new LiveliHoodEffectDef() { Value = -40 }
                                 }
                             },
@@ -352,6 +357,12 @@ namespace HuangD.Modders
     internal class PopTaxEffectDef : IPopTaxEffectDef
     {
         public string name { get; } = "人口税";
+        public double Value { get; internal set; }
+    }
+
+    internal class MilitaryCountEffectDef : IMilitaryCountEffectDef
+    {
+        public string name { get; } = "兵役数";
         public double Value { get; internal set; }
     }
 }

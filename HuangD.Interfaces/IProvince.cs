@@ -12,6 +12,7 @@ namespace HuangD.Interfaces
         IOffice masterOffice { get; }
         int popCount { get; set; }
         IMoneyMgr.TaxItem popTax { get; }
+        IMilitaryMgr.Item military { get; }
 
         LiveliHood livelihood { get; }
 

@@ -12,6 +12,8 @@ public class ProvinceDetail : MonoBehaviour
     public Text masterName;
     public Text popCount;
     public Text popTax;
+    public Text militaryCurr;
+    public Text militaryMax;
     public GameObject popTaxLevelContainer;
     public BufferContainer bufferContainer;
     public TaxLevelContainer taxLevelContainer;
@@ -80,6 +82,8 @@ public class ProvinceDetail : MonoBehaviour
         masterName.text = obj.masterOffice?.currPerson?.fullName;
         popCount.text = (obj.popCount/100.0).ToString();
         popTax.text = (obj.popTax.Value/100.0).ToString();
+        militaryCurr.text = (obj.military.currValue / 100.0).ToString();
+        militaryMax.text = (obj.military.maxValue / 100.0).ToString();
         liveliHood.value = obj.livelihood.Value;
 
         bufferContainer.Upate(obj.buffers);

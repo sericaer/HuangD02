@@ -28,5 +28,6 @@ namespace HuangD.Interfaces
         IEnumerable<IEvent> OnTimeElapse();
 
         IMoneyMgr moneyMgr { get; }
+        IMilitaryMgr militaryMgr { get; }
     }
 }

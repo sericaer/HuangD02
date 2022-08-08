@@ -33,11 +33,15 @@ namespace HuangD.Sessions
 
         public IMoneyMgr moneyMgr { get; private set; }
 
+        public IMilitaryMgr militaryMgr { get; private set; }
+
         private PersonScoreSystem personScoreSystem = new PersonScoreSystem();
         private MoneyCollectSystem moneyCollectSystem = new MoneyCollectSystem();
         private PopTaxSystem popTaxSystem;
         private LiveliHoodSystem liveliHoodSystem;
         private PopIncreaseSystem popCountIncreaseSystem;
+        private MilitarySystem militarySystem;
+
         private LogicSimEngine.Engine engine;
 
         private Random random;
@@ -106,6 +110,7 @@ namespace HuangD.Sessions
             moneyCollectSystem.Process(moneyMgr, date);
             liveliHoodSystem.Process(provinces, date);
             popCountIncreaseSystem.Process(provinces, date);
+            militarySystem.Process(militaryMgr, provinces, date);
 
             var context = new Context(this.GetContext());
 

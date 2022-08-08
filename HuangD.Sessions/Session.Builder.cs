@@ -24,9 +24,11 @@ namespace HuangD.Sessions
                 session.chaoting = ChaotingGroup.Builder.Build(modDefs.officeDefs.OfType<IChaotingOfficeDef>());
                 session.hougong = HougongGroup.Builder.Build(modDefs.officeDefs.OfType<IHougongOfficeDef>());
                 session.moneyMgr = new MoneyMgr(initData.money);
+                session.militaryMgr = new MilitaryMgr();
                 session.popTaxSystem = new PopTaxSystem(modDefs.popTaxLevelDef);
                 session.liveliHoodSystem = new LiveliHoodSystem(modDefs.popTaxLevelDef, modDefs.militaryLevelDef);
                 session.popCountIncreaseSystem = new PopIncreaseSystem();
+                session.militarySystem = new MilitarySystem(modDefs.militaryLevelDef);
 
                 session.persons = new List<IPerson>();
                 for (int i=0; i<100; i++)

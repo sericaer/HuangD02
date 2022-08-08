@@ -6,27 +6,18 @@ namespace HuangD.Interfaces
 {
     public interface IMilitaryMgr
     {
-        int current { get; set; }
+        int current { get; }
+        int max { get; }
 
-        Dictionary<object, Func<Item>> tables { get; }
-
-        public enum CollectType
-        {
-            POPTAX,
-        }
+        Dictionary<object, Item> tables { get; }
 
         public class Item
         {
-            public int baseValue { get; }
-            public double Value => baseValue * Math.Max(0, (100 + effects.Sum(x => x.value))) / 100;
-
-            public IEnumerable<(string desc, double value)> effects { get; }
-
-            public Item(int basValue, IEnumerable<(string desc, double value)> effects)
-            {
-                this.baseValue = basValue;
-                this.effects = effects;
-            }
+            public int baseValue { get; set; }
+            public double currValue { get; set; }
+            public double maxValue => baseValue * Math.Max(0, (100 + effects.Sum(x => x.value))) / 100;
+            public IEnumerable<(string desc, double value)> effects { get; set; }
+  
         }
     }
 }
