@@ -139,7 +139,7 @@ namespace HuangD.Modders
                                 level = IProvince.LaborLevel.VeryLow,
                                 effectDefs = new IEffectDef[]
                                 {
-                                    //new MilitaryCountEffectDef() { Value = -50 },
+                                    new LaborCountEffectDef() { Value = -50 },
                                     new LiveliHoodEffectDef() { Value = -4 }
                                 }
                             },
@@ -148,7 +148,7 @@ namespace HuangD.Modders
                                 level = IProvince.LaborLevel.Low,
                                 effectDefs = new IEffectDef[]
                                 {
-                                    //new MilitaryCountEffectDef() { Value = -30 },
+                                    new LaborCountEffectDef() { Value = -30 },
                                     new LiveliHoodEffectDef() { Value = -8 }
                                 }
                             },
@@ -157,7 +157,7 @@ namespace HuangD.Modders
                                 level = IProvince.LaborLevel.Mid,
                                 effectDefs = new IEffectDef[]
                                 {
-                                    //new MilitaryCountEffectDef() { Value = 0 },
+                                    new LaborCountEffectDef() { Value = 0 },
                                     new LiveliHoodEffectDef() { Value = -12 }
                                 }
                             },
@@ -166,7 +166,7 @@ namespace HuangD.Modders
                                 level = IProvince.LaborLevel.High,
                                 effectDefs = new IEffectDef[]
                                 {
-                                    //new MilitaryCountEffectDef() { Value = 30 },
+                                    new LaborCountEffectDef() { Value = 30 },
                                     new LiveliHoodEffectDef() { Value = -18 }
                                 }
                             },
@@ -175,7 +175,7 @@ namespace HuangD.Modders
                                 level = IProvince.LaborLevel.VeryHigh,
                                 effectDefs = new IEffectDef[]
                                 {
-                                    //new MilitaryCountEffectDef() { Value = 60 },
+                                    new LaborCountEffectDef() { Value = 60 },
                                     new LiveliHoodEffectDef() { Value = -25 }
                                 }
                             },
@@ -415,6 +415,12 @@ namespace HuangD.Modders
     internal class MilitaryCountEffectDef : IMilitaryCountEffectDef
     {
         public string name { get; } = "兵役人数";
+        public double Value { get; internal set; }
+    }
+
+    internal class LaborCountEffectDef : ILaborCountEffectDef
+    {
+        public string name { get; } = "劳役人数";
         public double Value { get; internal set; }
     }
 }

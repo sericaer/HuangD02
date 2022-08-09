@@ -29,5 +29,6 @@ namespace HuangD.Interfaces
 
         IMoneyMgr moneyMgr { get; }
         IMilitaryMgr militaryMgr { get; }
+        ILaborMgr laborMgr { get; }
     }
 }

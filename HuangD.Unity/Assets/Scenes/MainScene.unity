@@ -17297,6 +17297,8 @@ MonoBehaviour:
   popTax: {fileID: 1664357064}
   militaryCurr: {fileID: 790876156}
   militaryMax: {fileID: 694534661}
+  LaborCurr: {fileID: 968388650}
+  LaborMax: {fileID: 511906269}
   popTaxLevelContainer: {fileID: 182219706}
   bufferContainer: {fileID: 1715836143}
   taxLevelContainer: {fileID: 182219713}

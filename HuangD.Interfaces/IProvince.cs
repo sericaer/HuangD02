@@ -1,5 +1,4 @@
 ﻿using LogicSimEngine.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +12,7 @@ namespace HuangD.Interfaces
         int popCount { get; set; }
         IMoneyMgr.TaxItem popTax { get; }
         IMilitaryMgr.Item military { get; }
+        ILaborMgr.Item labor { get; }
 
         LiveliHood livelihood { get; }
 

@@ -44,4 +44,9 @@ namespace HuangD.Interfaces
     {
 
     }
+
+    public interface ILaborCountEffectDef : IEffectDef
+    {
+
+    }
 }

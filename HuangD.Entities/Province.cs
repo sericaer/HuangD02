@@ -23,6 +23,7 @@ namespace HuangD.Entities
 
         public IMoneyMgr.TaxItem popTax { get; }
         public IMilitaryMgr.Item military { get; }
+        public ILaborMgr.Item labor { get; }
 
         public IDictionary<string, Func<object>> context { get; private set; }
         public IProvince.PopCountChange popCountChange { get; }
@@ -43,6 +44,7 @@ namespace HuangD.Entities
             this.popCountChange = new IProvince.PopCountChange();
             this.military = new IMilitaryMgr.Item();
             this.popTax = new IMoneyMgr.TaxItem();
+            this.labor = new ILaborMgr.Item();
 
             this.context = new Dictionary<string, Func<object>>()
             {

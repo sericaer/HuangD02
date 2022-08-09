@@ -14,6 +14,8 @@ public class ProvinceDetail : MonoBehaviour
     public Text popTax;
     public Text militaryCurr;
     public Text militaryMax;
+    public Text LaborCurr;
+    public Text LaborMax;
     public GameObject popTaxLevelContainer;
     public BufferContainer bufferContainer;
     public TaxLevelContainer taxLevelContainer;
@@ -87,7 +89,8 @@ public class ProvinceDetail : MonoBehaviour
         militaryCurr.text = (obj.military.currValue / 100.0).ToString();
         militaryMax.text = (obj.military.maxValue / 100.0).ToString();
         liveliHood.value = obj.livelihood.Value;
-
+        LaborCurr.text = (obj.labor.currValue / 100.0).ToString();
+        LaborMax.text = (obj.labor.maxValue / 100.0).ToString();
         bufferContainer.Upate(obj.buffers);
     }
 }
