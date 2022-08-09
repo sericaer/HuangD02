@@ -13225,7 +13225,7 @@ MonoBehaviour:
   matchRotationTo: {fileID: 0}
   tooltipsEnabled: 1
   touchSupport: 0
-  tooltipDelay: 1.5
+  tooltipDelay: 0.8
   fadeDuration: 0.2
   overflowProtection: 1
   positionBounds: 0

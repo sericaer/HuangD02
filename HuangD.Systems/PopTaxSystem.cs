@@ -7,11 +7,11 @@ namespace HuangD.Systems
 {
     public class PopTaxSystem
     {
-        private Dictionary<IProvince.PopTaxLevel, IPopTaxEffectDef> dictEffectByPopTaxLevel;
+        private Dictionary<IProvince.PopTaxLevel, IPopTaxEffectDef> dictPopTaxLevel;
 
         public PopTaxSystem(IPopTaxLevelDef def)
         {
-            dictEffectByPopTaxLevel = def.items.SelectMany(x => x.effectDefs.OfType<IPopTaxEffectDef>().Select(effect => (x.popTaxLevel, effect)))
+            dictPopTaxLevel = def.items.SelectMany(x => x.effectDefs.OfType<IPopTaxEffectDef>().Select(effect => (x.popTaxLevel, effect)))
                 .ToDictionary(key => key.popTaxLevel, value => value.effect);
         }
 
@@ -19,26 +19,16 @@ namespace HuangD.Systems
         {
             foreach (var province in provinces)
             {
+                var popTax = province.popTax;
+                popTax.baseValue = (int)(province.popCount * 0.1);
+                popTax.effects = province.buffers.SelectMany(x => x.def.effects.OfType<IPopTaxEffectDef>().Select(y => (x.def.name, y.Value)))
+                                .Prepend(("人口税等级", dictPopTaxLevel[province.popTaxLevel].Value));
+
                 if (!moneyMgr.tables[IMoneyMgr.CollectType.POPTAX].ContainsKey(province))
                 {
-                    moneyMgr.tables[IMoneyMgr.CollectType.POPTAX].Add(province, () => CalcTaxItem(province));
+                    moneyMgr.tables[IMoneyMgr.CollectType.POPTAX].Add(province, popTax);
                 }
             }
-        }
-
-        private IMoneyMgr.TaxItem CalcTaxItem(IProvince province)
-        {
-            var taxItem = new IMoneyMgr.TaxItem(
-                (int)(province.popCount * 0.1),
-                province.buffers.SelectMany(x => x.def.effects.OfType<IPopTaxEffectDef>().Select(y=>(x.def.name, y.Value)))
-                                .Prepend(("TaxLevel", CalcEffectValueByLevel(province.popTaxLevel))));
-
-            return taxItem;
-        }
-
-        private double CalcEffectValueByLevel(IProvince.PopTaxLevel popTaxLevel)
-        {
-            return dictEffectByPopTaxLevel[popTaxLevel].Value;
         }
     }
 }

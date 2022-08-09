@@ -215,7 +215,7 @@ namespace HuangD.Modders
                                 },
                                 new PopIncreaseEffectDef()
                                 {
-                                    Value = -1.5
+                                    Value = -1.0
                                 }
                             },
                             isStart = (context) =>
@@ -408,13 +408,13 @@ namespace HuangD.Modders
 
     internal class PopTaxEffectDef : IPopTaxEffectDef
     {
-        public string name { get; } = "人口税";
+        public string name { get; } = "人口税金";
         public double Value { get; internal set; }
     }
 
     internal class MilitaryCountEffectDef : IMilitaryCountEffectDef
     {
-        public string name { get; } = "兵役数";
+        public string name { get; } = "兵役人数";
         public double Value { get; internal set; }
     }
 }

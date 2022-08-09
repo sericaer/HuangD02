@@ -48,7 +48,7 @@ public class ProvinceDetail : MonoBehaviour
         {
             return new TipInfo()
             {
-                bodyText = $"基础值    {obj.popTax.baseValue}\n"
+                bodyText = $"基础值    {obj.popTax.baseValue/100.0}\n"
                          + String.Join("\n", obj.popTax.effects.Select(x => $"{x.desc}    {x.value:+0;-#}%"))
             };
         };
@@ -57,7 +57,7 @@ public class ProvinceDetail : MonoBehaviour
         {
             return new TipInfo()
             {
-                bodyText = $"基础值    {obj.livelihood.baseValue}\n"
+                bodyText = $"基础值    {obj.livelihood.baseValue/100.0}\n"
                          + String.Join("\n", obj.livelihood.effects.Select(x => $"{x.desc}    {x.value:+0;-#}%"))
             };
         };
@@ -66,7 +66,7 @@ public class ProvinceDetail : MonoBehaviour
         {
             return new TipInfo()
             {
-                bodyText =String.Join("\n", obj.popCountChange.effects.Select(x => $"{x.desc}    {x.value:+0;-#}%"))
+                bodyText =String.Join("\n", obj.popCountChange.effects.Select(x => $"{x.desc}    {x.value:+0.00;-#.##}%"))
             };
         };
     }

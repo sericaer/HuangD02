@@ -6,6 +6,6 @@ namespace HuangD.Modders
     {
         public double Value { get; set; }
 
-        public string name => "LiveliHood";
+        public string name => "民生";
     }
 }

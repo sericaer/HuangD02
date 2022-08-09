@@ -8,16 +8,16 @@ namespace HuangD.Sessions
     {
         public int current { get; set; }
 
-        public Dictionary<IMoneyMgr.CollectType, Dictionary<object, Func<IMoneyMgr.TaxItem>>> tables { get; }
+        public Dictionary<IMoneyMgr.CollectType, Dictionary<object, IMoneyMgr.TaxItem>> tables { get; }
 
         public MoneyMgr(int money)
         {
             current = money;
-            tables = new Dictionary<IMoneyMgr.CollectType, Dictionary<object, Func<IMoneyMgr.TaxItem>>>();
+            tables = new Dictionary<IMoneyMgr.CollectType, Dictionary<object, IMoneyMgr.TaxItem>>();
 
             foreach(IMoneyMgr.CollectType elem in Enum.GetValues(typeof(IMoneyMgr.CollectType)))
             {
-                tables.Add(elem, new Dictionary<object, Func<IMoneyMgr.TaxItem>>());
+                tables.Add(elem, new Dictionary<object, IMoneyMgr.TaxItem>());
             }
         }
 

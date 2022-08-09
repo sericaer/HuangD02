@@ -93,11 +93,6 @@ namespace HuangD.Sessions
             {
                 return relationMgr.person2Parties.Where(x => x.party == party);
             };
-
-            Province.funcGetCurrPopTax = (province) =>
-            {
-                return moneyMgr.tables[IMoneyMgr.CollectType.POPTAX][province]();
-            };
         }
 
         public IEnumerable<IEvent> OnTimeElapse()

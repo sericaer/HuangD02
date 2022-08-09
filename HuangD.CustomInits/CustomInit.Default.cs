@@ -9,6 +9,7 @@ namespace HuangD.CustomInits
         public static CustomInit Default = new CustomInit()
         {
             seed = "DEFAULT",
+            money = 10000,
 
             emperor = new EmperorInit()
             {

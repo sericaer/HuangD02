@@ -9,8 +9,6 @@ namespace HuangD.Entities
 {
     public class Province : IProvince
     {
-        public static Func<IProvince, IMoneyMgr.TaxItem> funcGetCurrPopTax { get; set; }
-
         public string name => def.name;
 
         public IOffice masterOffice { get; }
@@ -23,7 +21,7 @@ namespace HuangD.Entities
 
         public List<IBuffer> buffers { get; }
 
-        public IMoneyMgr.TaxItem popTax => funcGetCurrPopTax(this);
+        public IMoneyMgr.TaxItem popTax { get; }
         public IMilitaryMgr.Item military { get; }
 
         public IDictionary<string, Func<object>> context { get; private set; }
@@ -42,6 +40,7 @@ namespace HuangD.Entities
             this.livelihood = new IProvince.LiveliHood();
             this.popCountChange = new IProvince.PopCountChange();
             this.military = new IMilitaryMgr.Item();
+            this.popTax = new IMoneyMgr.TaxItem();
 
             this.context = new Dictionary<string, Func<object>>()
             {
