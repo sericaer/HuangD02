@@ -36,6 +36,8 @@ namespace HuangD.Entities
             this.masterOffice = new Office(def.master);
             this.popCount = def.popCount;
             this.popTaxLevel = IProvince.PopTaxLevel.Mid;
+            this.militaryLevel = IProvince.MilitaryLevel.Mid;
+            this.laborLevel = IProvince.LaborLevel.Mid;
             this.buffers = new List<IBuffer>();
             this.livelihood = new IProvince.LiveliHood();
             this.popCountChange = new IProvince.PopCountChange();

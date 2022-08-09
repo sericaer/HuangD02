@@ -21,7 +21,7 @@ namespace HuangD.Systems
             {
                 var military = province.military;
 
-                military.baseValue = (int)(province.popCount * 0.1);
+                military.baseValue = (int)(province.popCount * 0.03);
                 military.effects = province.buffers.SelectMany(x => x.def.effects.OfType<IMilitaryCountEffectDef>().Select(y => (x.def.name, y.Value)))
                     .Prepend(("兵役等级", dictMilitaryLevel[province.militaryLevel].Value));
                 
@@ -32,12 +32,13 @@ namespace HuangD.Systems
                     military.currValue = military.maxValue / 2;
                 }
 
-
                 if (date.day == 30 )
                 {
+                    var incPerMonth = Math.Max(military.maxValue / 4, 3);
+
                     if (military.currValue < military.maxValue)
                     {
-                        military.currValue = Math.Min(military.currValue + 30 * 10, military.maxValue);
+                        military.currValue = Math.Min(military.currValue + incPerMonth, military.maxValue);
                     }
                     else if (military.currValue > military.maxValue)
                     {

@@ -29,7 +29,8 @@ namespace HuangD.Sessions
                 session.liveliHoodSystem = new LiveliHoodSystem(modDefs);
                 session.popCountIncreaseSystem = new PopIncreaseSystem();
                 session.militarySystem = new MilitarySystem(modDefs.militaryLevelDef);
-
+                session.militarySpendSystem = new MilitarySpendSystem();
+                
                 session.persons = new List<IPerson>();
                 for (int i=0; i<100; i++)
                 {

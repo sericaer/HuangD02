@@ -8,7 +8,9 @@ namespace HuangD.Interfaces
     {
         int current { get; set; }
 
-        Dictionary<CollectType, Dictionary<object, TaxItem>> tables { get; }
+        Dictionary<CollectType, Dictionary<object, TaxItem>> incomeTables { get; }
+
+        Dictionary<object, IMoneyMgr.SpendItem> spendTables { get; }
 
         public enum CollectType
         {
@@ -21,6 +23,12 @@ namespace HuangD.Interfaces
 
             public int baseValue { get; set; }
             public IEnumerable<(string desc, double value)> effects { get; set; }
+        }
+
+        public class SpendItem
+        {
+            public string name { get; set; }
+            public int value { get; set; }
         }
     }
 }

@@ -14,7 +14,9 @@ public class Money : MonoBehaviour
         {
             return new TipInfo()
             {
-                bodyText = String.Join("\n", Global.session.moneyMgr.tables.Select(x => $"{x.Key}    {x.Value.Values.Sum(x=>x.Value)/100.0:+0.00;-#.##}"))
+                bodyText = String.Join("\n", Global.session.moneyMgr.incomeTables.Select(x => $"{x.Key}    {x.Value.Values.Sum(x=>x.Value)/100.0:+0.00;-#.##}"))
+                    +"\n\n"
+                    + String.Join("\n", Global.session.moneyMgr.spendTables.Select(x => $"{x.Value.name}    {x.Value.value / -100.0:+0.00;-#.##}"))
             };
         };
     }

@@ -41,6 +41,7 @@ namespace HuangD.Sessions
         private LiveliHoodSystem liveliHoodSystem;
         private PopIncreaseSystem popCountIncreaseSystem;
         private MilitarySystem militarySystem;
+        private MilitarySpendSystem militarySpendSystem;
 
         private LogicSimEngine.Engine engine;
 
@@ -106,6 +107,7 @@ namespace HuangD.Sessions
             liveliHoodSystem.Process(provinces, date);
             popCountIncreaseSystem.Process(provinces, date);
             militarySystem.Process(militaryMgr, provinces, date);
+            militarySpendSystem.Process(militaryMgr, moneyMgr, date);
 
             var context = new Context(this.GetContext());
 

@@ -24,9 +24,9 @@ namespace HuangD.Systems
                 popTax.effects = province.buffers.SelectMany(x => x.def.effects.OfType<IPopTaxEffectDef>().Select(y => (x.def.name, y.Value)))
                                 .Prepend(("人口税等级", dictPopTaxLevel[province.popTaxLevel].Value));
 
-                if (!moneyMgr.tables[IMoneyMgr.CollectType.POPTAX].ContainsKey(province))
+                if (!moneyMgr.incomeTables[IMoneyMgr.CollectType.POPTAX].ContainsKey(province))
                 {
-                    moneyMgr.tables[IMoneyMgr.CollectType.POPTAX].Add(province, popTax);
+                    moneyMgr.incomeTables[IMoneyMgr.CollectType.POPTAX].Add(province, popTax);
                 }
             }
         }
