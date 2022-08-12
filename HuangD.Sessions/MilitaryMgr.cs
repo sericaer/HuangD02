@@ -9,7 +9,7 @@ namespace HuangD.Sessions
         public int current => (int)tables.Values.Sum(x => x.currValue);
         public int max => (int)tables.Values.Sum(x => x.maxValue);
 
-        public Dictionary<object, IMilitaryMgr.Item> tables { get; } = new Dictionary<object, IMilitaryMgr.Item>();
+        public Dictionary<object, IMilitaryMgr.IItem> tables { get; } = new Dictionary<object, IMilitaryMgr.IItem>();
 
 
     }

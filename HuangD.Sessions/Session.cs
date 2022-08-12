@@ -106,11 +106,11 @@ namespace HuangD.Sessions
             personScoreSystem.Process(persons, date);
 
             popTaxSystem.Process(moneyMgr, provinces, date);
-            militarySystem.Process(militaryMgr, provinces, date);
-            laborSystem.Process(laborMgr, provinces, date);
+            militarySystem.Process(militaryMgr, date);
+            laborSystem.Process(laborMgr, date);
 
             moneyCollectSystem.Process(moneyMgr, date);
-            liveliHoodSystem.Process(provinces, date);
+            //liveliHoodSystem.Process(provinces, date);
             popCountIncreaseSystem.Process(provinces, date);
 
             militarySpendSystem.Process(militaryMgr, moneyMgr, date);

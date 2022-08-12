@@ -28,12 +28,6 @@ namespace HuangD.Sessions
                 session.militaryMgr = new MilitaryMgr();
                 session.laborMgr = new LaborMgr();
 
-                session.popTaxSystem = new PopTaxSystem(modDefs.popTaxLevelDef);
-                session.liveliHoodSystem = new LiveliHoodSystem(modDefs);
-                session.popCountIncreaseSystem = new PopIncreaseSystem();
-                session.militarySystem = new MilitarySystem(modDefs.militaryLevelDef);
-                session.militarySpendSystem = new MilitarySpendSystem();
-                session.laborSystem = new LaborSystem(modDefs.laborLevelDef);
 
                 session.persons = new List<IPerson>();
                 for (int i=0; i<100; i++)
@@ -55,6 +49,12 @@ namespace HuangD.Sessions
 
                 session.relationMgr = RelationMgr.Builder.Build(session.persons, session.chaoting, session.hougong, session.parties, session.provinces);
 
+                session.popTaxSystem = new PopTaxSystem(modDefs.popTaxLevelDef, session.moneyMgr, session.provinces);
+                session.liveliHoodSystem = new LiveliHoodSystem(modDefs, session.provinces);
+                session.popCountIncreaseSystem = new PopIncreaseSystem();
+                session.militarySystem = new MilitarySystem(modDefs.militaryLevelDef, session.militaryMgr, session.provinces);
+                session.militarySpendSystem = new MilitarySpendSystem();
+                session.laborSystem = new LaborSystem(modDefs.laborLevelDef, session.laborMgr, session.provinces);
 
                 return session;
             }

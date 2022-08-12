@@ -8,7 +8,7 @@ namespace HuangD.Interfaces
     {
         int current { get; set; }
 
-        Dictionary<CollectType, Dictionary<object, TaxItem>> incomeTables { get; }
+        Dictionary<CollectType, Dictionary<object, ITaxItem>> incomeTables { get; }
 
         Dictionary<object, IMoneyMgr.SpendItem> spendTables { get; }
 
@@ -17,12 +17,12 @@ namespace HuangD.Interfaces
             POPTAX,
         }
 
-        public class TaxItem
+        public interface ITaxItem
         {
-            public int Value => (int)(baseValue * Math.Max(0, (100 + effects.Sum(x => x.value))) / 100);
+            public int Value { get; }
 
-            public int baseValue { get; set; }
-            public IEnumerable<(string desc, double value)> effects { get; set; }
+            public int baseValue { get;  }
+            public IEnumerable<(string desc, double value)> effects { get; }
         }
 
         public class SpendItem

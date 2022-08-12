@@ -1,4 +1,5 @@
 ﻿using LogicSimEngine.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,11 @@ namespace HuangD.Interfaces
         string name { get; }
         IOffice masterOffice { get; }
         int popCount { get; set; }
-        IMoneyMgr.TaxItem popTax { get; }
-        IMilitaryMgr.Item military { get; }
-        ILaborMgr.Item labor { get; }
+        IMoneyMgr.ITaxItem popTax { get; }
+        IMilitaryMgr.IItem military { get; }
+        ILaborMgr.IItem labor { get; }
 
-        LiveliHood livelihood { get; }
+        ILiveliHood livelihood { get; }
 
         PopTaxLevel popTaxLevel { get; set; }
         MilitaryLevel militaryLevel { get; set; }
@@ -50,11 +51,11 @@ namespace HuangD.Interfaces
             VeryHigh
         }
 
-        public class LiveliHood
+        public interface ILiveliHood
         {
-            public int baseValue { get; set; }
-            public int Value => (int)(baseValue * (100 + effects.Sum(x => x.value)) / 100);
-            public IEnumerable<(string desc, double value)> effects { get; set; }
+            public int baseValue { get; }
+            public int Value { get; }
+            public IEnumerable<(string desc, double value)> effects { get; }
         }
 
         public class PopCountChange

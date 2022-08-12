@@ -9,14 +9,14 @@ namespace HuangD.Interfaces
         int current { get; }
         int max { get; }
 
-        Dictionary<object, Item> tables { get; }
+        Dictionary<object, IItem> tables { get; }
 
-        public class Item
+        public interface IItem
         {
-            public int baseValue { get; set; }
-            public double currValue { get; set; }
-            public double maxValue => baseValue * Math.Max(0, (100 + effects.Sum(x => x.value))) / 100;
-            public IEnumerable<(string desc, double value)> effects { get; set; }
+            public int baseValue { get; }
+            public int currValue { get; set; }
+            public int maxValue { get; }
+            public IEnumerable<(string desc, double value)> effects { get; }
 
         }
     }
